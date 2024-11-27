@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### env filer ###
-bilabonnement.env
+*.env
