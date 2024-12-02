@@ -23,8 +23,12 @@ public class BilRepository {
     }
     public void addBil(Bil bil){
 
-        String sql = "INSERT INTO bil(stelnummer,mærke,model,brandstof,odometer,status)VALUES(?,?,?,?,?,?)";
-        template.update(sql,bil.getStelnummer(),bil.getMærke(),bil.getModel(),bil.getBrandstof(),bil.getOdometer(),bil.getStatus().toString());
+        String sql = "INSERT INTO bil(stelnummer,mærke,model,brandstof,odometer)VALUES(?,?,?,?,?)";
+        template.update(sql,bil.getStelnummer(),bil.getMærke(),bil.getModel(),bil.getBrandstof(),bil.getOdometer());
     }
+
+
+
+
 
 }
