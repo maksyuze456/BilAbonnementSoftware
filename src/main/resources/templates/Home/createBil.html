@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Bil</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Create Bil</h1>
+    <form th:action="@{/bil/create}" th:object="${bil}" method="post">
+        <label for="stelnummer">Stelnummer:</label>
+        <input type="text" id="stelnummer" th:field="*{stelnummer}"><br>
+        <label for="model">Model:</label>
+        <input type="text" id="model" th:field="*{model}"><br>
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>
