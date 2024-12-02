@@ -26,8 +26,11 @@ public class LejeaftaleRepository {
     public Lejeaftale findLejeaftaleById(int id){
         String sql ="SELECT * FROM lejeaftale WHERE lejeaftal_id =?";
         RowMapper<Lejeaftale>rowMapper=new BeanPropertyRowMapper<>(Lejeaftale.class);
-        Lejeaftale l= template.queryForObject(sql,rowMapper,id);
-        return l;
+       try {
+           return template.queryForObject(sql, rowMapper, id);
+       } catch (Exception e){
+       return null;
+        }
     }
     public Boolean deleteLejeaftale(int id){
         String sql = "DELETE FROM lejeaftale WHERE  lejeaftal_id =?";

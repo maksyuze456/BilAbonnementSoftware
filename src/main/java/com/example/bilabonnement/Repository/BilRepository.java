@@ -27,24 +27,25 @@ public class BilRepository {
     }
     public Bil findBilByStelNummer(String stelnummer) {
         String sql = "SELECT * FROM bil WHERE stelnummer=?";
+
         RowMapper<Bil> rowMapper = new BeanPropertyRowMapper<>(Bil.class);
-        Bil b = template.queryForObject(sql, rowMapper, stelnummer);
-        return b;
-    }
-
-    public Boolean deleteBil(String stelnummer){
-        String sql="DELETE FROM bil WHERE stelnummer=?";
-        return template.update(sql,stelnummer)>0;
-
-    }
-    public void updateBil(Bil b){
-        String sql="UPDATE bil SET mærke=?,model=?,brandstof=?,odometer=? WHERE stelnummer=? ";
-        template.update(sql,b.getMærke(),b.getModel(),b.getBrandstof(),b.getOdometer(),b.getStelnummer());
+        try {
+            return template.queryForObject(sql, rowMapper, stelnummer);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 
+        public Boolean deleteBil (String stelnummer){
+            String sql = "DELETE FROM bil WHERE stelnummer=?";
+            return template.update(sql, stelnummer) > 0;
+
+        }
+        public void updateBil (Bil b){
+            String sql = "UPDATE bil SET mærke=?,model=?,brandstof=?,odometer=? WHERE stelnummer=? ";
+            template.update(sql, b.getMærke(), b.getModel(), b.getBrandstof(), b.getOdometer(), b.getStelnummer());
+        }
 
 
-
-
-}
+    }

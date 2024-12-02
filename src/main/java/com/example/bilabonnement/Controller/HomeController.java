@@ -27,7 +27,8 @@ public class HomeController {
     }
 
     @GetMapping("/bil/create")
-    public String createBil() {
+    public String createBil(Model model) {
+        model.addAttribute("bil", new Bil());
         return "home/createBil";
     }
 
@@ -39,7 +40,6 @@ public class HomeController {
 
     @GetMapping("/deleteBil/{stelnummer}")
     public String deleteBil(@PathVariable("stelnummer") String stelnummer) {
-
         boolean deleted = bilService.deleteBil(stelnummer);
         if (deleted) {
             return "redirect:/";
@@ -47,22 +47,27 @@ public class HomeController {
             return "redirect:/";
         }
     }
+
     @GetMapping("/updateBil/{stelnummer}")
-    public String updateBil(@PathVariable ("stelnummer") String stelnummer,Model model){
-        model.addAttribute("bil",bilService.findBilByStelNummer(stelnummer));
+    public String updateBil(@PathVariable("stelnummer") String stelnummer, Model model) {
+        model.addAttribute("bil", bilService.findBilByStelNummer(stelnummer));
         return "home/updateBil";
     }
+
     @PostMapping("/update")
-    public String update(@ModelAttribute Bil bil){
+    public String update(@ModelAttribute Bil bil) {
         bilService.updateBil(bil);
         return "redirect:/";
     }
 
-    //lejeaftale
+
+    //Lejeaftale
     @GetMapping("/lejeaftale/create")
-    public String createLejeaftale() {
+    public String createLejeaftale(Model moel) {
+        moel.addAttribute("lejeaftale",new Lejeaftale());
         return "home/createlejeaftale";
     }
+
 
     @PostMapping("/lejeaftale/create")
     public String createLejeaftale(@ModelAttribute Lejeaftale l) {
@@ -70,6 +75,7 @@ public class HomeController {
         return "redirect:/";
     }
 
+    //ikke blevet testet med html og css
     @GetMapping("/lejeaftale/delete/{id}")
     public String deletelejeaftale(@PathVariable("id") int id) {
         boolean deleted = lejeaftaleService.deleteLejeaftale(id);
@@ -80,15 +86,21 @@ public class HomeController {
         }
     }
 
+
     @GetMapping("/lejeaftale/update/{lejeaftal_id}")
     public String updateLejeaftale(@PathVariable("lejeaftal_id") int lejeaftale_id, Model model) {
         model.addAttribute("lejeaftale_id", lejeaftaleService.findLejeaftaleById(lejeaftale_id));
         return "home/updateLejeaftale";
     }
-     @PostMapping("/lejeaftale/update")
-     public String updateLejeaftale(@ModelAttribute Lejeaftale lejeaftale){
-         lejeaftaleService.uupdateejeaftale(lejeaftale);
-         return "redirect/";
+    @PostMapping("/lejeaftale/update")
+    public String updateLejeaftale(@ModelAttribute Lejeaftale lejeaftale){
+        lejeaftaleService.updateejeaftale(lejeaftale);
+        return "redirect/";
 
-        }
+
     }
+
+
+
+
+}

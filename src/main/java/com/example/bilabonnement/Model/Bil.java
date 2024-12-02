@@ -18,8 +18,15 @@ public class Bil {
     private String brandstof;
 
     private int odometer;
+public Bil(){}
 
-
+public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer) {
+    this.stelnummer = stelnummer;
+    this.mærke = mærke;
+    this.model = model;
+    this.brandstof = brandstof;
+    this.odometer = odometer;
+}
 
     public String getStelnummer() {
         return stelnummer;
