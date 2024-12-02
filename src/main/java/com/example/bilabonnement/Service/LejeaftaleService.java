@@ -19,10 +19,14 @@ public class LejeaftaleService {
         lejeaftaleRepository.addLejeaftale(l);
 
     }
-    public Boolean deleteLejeaftaleById(int id){
-        return lejeaftaleRepository.deleteLejeaftaleById(id);
+    public Lejeaftale findLejeaftaleById(int id){
+        return lejeaftaleRepository.findLejeaftaleById(id);
     }
-    public void updateLejeaftale(Lejeaftale l){
+
+    public Boolean deleteLejeaftale(int id){
+        return lejeaftaleRepository.deleteLejeaftale(id);
+    }
+    public void uupdateejeaftale(Lejeaftale l){
         lejeaftaleRepository.updateLejeaftale(l);
     }
 }

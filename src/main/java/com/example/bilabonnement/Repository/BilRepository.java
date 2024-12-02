@@ -9,14 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static org.springframework.jdbc.core.JdbcOperationsExtensionsKt.query;
 
 @Repository
 public class BilRepository {
     @Autowired
     JdbcTemplate template;
 
-    public List<Bil> fetchAll(){
+    public List<Bil> fetchAllBil(){
         String sql="SELECT * FROM bil";
         RowMapper <Bil> rowMapper= new BeanPropertyRowMapper<>(Bil.class);
         return template.query(sql,rowMapper);
@@ -26,6 +25,23 @@ public class BilRepository {
         String sql = "INSERT INTO bil(stelnummer,mærke,model,brandstof,odometer)VALUES(?,?,?,?,?)";
         template.update(sql,bil.getStelnummer(),bil.getMærke(),bil.getModel(),bil.getBrandstof(),bil.getOdometer());
     }
+    public Bil findBilByStelNummer(String stelnummer) {
+        String sql = "SELECT * FROM bil WHERE stelnummer=?";
+        RowMapper<Bil> rowMapper = new BeanPropertyRowMapper<>(Bil.class);
+        Bil b = template.queryForObject(sql, rowMapper, stelnummer);
+        return b;
+    }
+
+    public Boolean deleteBil(String stelnummer){
+        String sql="DELETE FROM bil WHERE stelnummer=?";
+        return template.update(sql,stelnummer)>0;
+
+    }
+    public void updateBil(Bil b){
+        String sql="UPDATE bil SET mærke=?,model=?,brandstof=?,odometer=? WHERE stelnummer=? ";
+        template.update(sql,b.getMærke(),b.getModel(),b.getBrandstof(),b.getOdometer(),b.getStelnummer());
+    }
+
 
 
 

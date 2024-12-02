@@ -11,12 +11,22 @@ import java.util.List;
 public class BilService {
     @Autowired
     BilRepository bilRepository;
-    public List<Bil>fetchAll(){
-        return bilRepository.fetchAll();
+    public List<Bil>fetchAllBil(){
+        return bilRepository.fetchAllBil();
     }
     public void addBil(Bil b){
         bilRepository.addBil(b);
     }
+    public Bil findBilByStelNummer(String stelnummer){
+        return bilRepository.findBilByStelNummer(stelnummer);
+    }
+    public Boolean deleteBil(String stelnummer){
+        return bilRepository.deleteBil(stelnummer);
+    }
+    public void updateBil(Bil b){
+        bilRepository.updateBil(b);
+    }
+
 
 }
 

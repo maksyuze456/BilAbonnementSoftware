@@ -29,7 +29,7 @@ public class LejeaftaleRepository {
         Lejeaftale l= template.queryForObject(sql,rowMapper,id);
         return l;
     }
-    public Boolean deleteLejeaftaleById(int id){
+    public Boolean deleteLejeaftale(int id){
         String sql = "DELETE FROM lejeaftale WHERE  lejeaftal_id =?";
         return template.update(sql,id)>0;
 
