@@ -12,12 +12,12 @@ public class ForretningsRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
     public List<Map<String, Object>> fetchAllLeased() {
-        String sql = "SELECT bil.stelnummer, bil.brand, bil.model, bil.statusName, leasingPrices.leasingPrice FROM cars\n" +
+        String sql = "SELECT bil.stelnummer, bil.brand, bil.model, bil.bilStatus, leasingPrices.leasingPrice FROM bil\n" +
                 "\tinner join leasingprices\n" +
                 "\ton leasingprices.leasingCarStelnummer = bil.stelnummer\n" +
                 "    where cars.statusName = \"Udlejet\";";
         List<Map<String, Object>> results = jdbcTemplate.queryForList(sql);
         return results;
-
     }
+
 }
