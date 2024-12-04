@@ -13,9 +13,9 @@ public class ForretningsController {
 
     @GetMapping("/forretningsudvikler")
     public String forretningsudviklerHome(Model model) {
-        model.addAttribute("carsList", forretningsService.fetchAllLeased());
+        model.addAttribute("bilList", forretningsService.fetchAllLeased());
         model.addAttribute("totalIncome", forretningsService.getTotalLeasedIncome());
         model.addAttribute("totalAmount", forretningsService.getTotalLeasedCars());
-        return "forretningsudvikler";
+        return "forretningsudvikler/forretningsudvikler";
     }
 }
