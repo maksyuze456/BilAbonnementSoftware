@@ -1,0 +1,35 @@
+
+.container {
+
+}
+table {
+    width: 100%;
+    border-spacing: 0;
+    border: 3px solid #eaeaea;
+    border-radius: 5px;
+}
+
+thead td{
+    padding: 16px;
+    font-weight: 700;
+}
+
+tbody tr {
+    background-color: #eaeaea;
+}
+tbody tr:nth-child(even){
+    background-color: #FFFFFF;
+}
+tbody td{
+    font-size: 16px;
+    padding: 16px;
+    max-width: 120px;
+    overflow: hidden;
+}
+#table-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+#table-buttons a{
+    cursor: pointer;
+}
