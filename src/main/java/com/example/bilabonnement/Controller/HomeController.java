@@ -1,5 +1,4 @@
 package com.example.bilabonnement.Controller;
-
 import com.example.bilabonnement.Model.Bil;
 import com.example.bilabonnement.Model.Lejeaftale;
 import com.example.bilabonnement.Service.BilService;
@@ -99,8 +98,5 @@ public class HomeController {
 
 
     }
-
-
-
 
 }
