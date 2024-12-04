@@ -24,6 +24,12 @@ public class BilController {
         model.addAttribute("lejeaftaler", lejeaftaleService.fetchAllLejeaftale());
         return "home/index";
     }
+    @GetMapping("/forside")
+    public String homePage() {
+        return "home/forside";
+    }
+
+
 
     @GetMapping("/bil/create")
     public String createBil(Model model) {
