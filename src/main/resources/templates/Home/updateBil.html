@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Bil</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Update Bil</h1>
+    <form th:action="@{/update}" th:object="${bil}" method="post">
+        <label for="stelnummer">Stelnummer:</label>
+        <input type="text" id="stelnummer" th:field="*{stelnummer}" readonly><br>
+        <label for="mærke">Mærke:</label>
+        <input type="text" id="mærke" th:field="*{mærke}"><br>
+        <label for="model">Model:</label>
+        <input type="text" id="model" th:field="*{model}"><br>
+        <label for="brandstof">Brandstof:</label>
+        <input type="text" id="brandstof" th:field="*{brandstof}"><br>
+        <label for="odometer">Odometer:</label>
+        <input type="number" id="odometer" th:field="*{odometer}"><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
