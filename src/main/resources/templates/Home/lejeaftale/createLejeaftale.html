@@ -73,6 +73,18 @@
                         <td th:text="${lejeaftale.start_dato}"></td>
                         <td th:text="${lejeaftale.slut_dato}"></td>
                         <td th:text="${lejeaftale.pris}"></td>
+                    </tr>
+                    <tr>
+                        <form th:action="@{/lejeaftale/add}" th:object="${lejeaftale}" method="post">
+                            <td><input type="text" th:field="*{lejeaftale_id}" /></td>
+                            <td><input type="text" th:field="*{kunde_nr}" /></td>
+                            <td><input type="text" th:field="*{stelnummer}" /></td>
+                            <td><input type="date" th:field="*{start_dato}" /></td>
+                            <td><input type="date" th:field="*{slut_dato}" /></td>
+                            <td><input type="text" th:field="*{pris}" /></td>
+                            <td><button type="submit">Tilføj</button></td>
+                        </form>
+                    </tr>
                     </tbody>
 
                 </table>
