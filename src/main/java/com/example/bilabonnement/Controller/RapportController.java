@@ -24,7 +24,8 @@ public class RapportController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("rapporter", rapportService.fetchAll());
-        return "rapporter";
+
+        return "home/rapport";
     }
 
     @GetMapping("/create")
