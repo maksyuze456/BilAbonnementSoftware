@@ -41,7 +41,7 @@
   <div class="main-content">
     <h1>Dataregistrering</h1>
 
-    <a href="/home/lejeaftale/create">
+    <a href="/create">
       <button class="btn-createlejeaftale, btn" id="btn-createlejeaftale">Opret en ny lejeaftale</button>
     </a>
     <div class="dynamic-content">
@@ -60,7 +60,7 @@
           <tr th:each="lejeaftale : ${lejeaftaler}">
             <td th:text="${lejeaftale.lejeaftale_id}"></td>
             <td th:text="${lejeaftale.kunde_nr}"></td>
-
+            <td th:text="${lejeaftale.stelnummer}"></td>
             <td th:text="${lejeaftale.start_dato}"></td>
             <td th:text="${lejeaftale.slut_dato}"></td>
             <td th:text="${lejeaftale.pris}"></td>

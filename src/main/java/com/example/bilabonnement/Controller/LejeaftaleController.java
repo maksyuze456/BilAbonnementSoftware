@@ -18,21 +18,21 @@ public class LejeaftaleController {
     LejeaftaleService lejeaftaleService;
 
 
-    @GetMapping("/lejeaftale/create")
+    @GetMapping("/create")
     public String createLejeaftaleForm(Model model) {
         model.addAttribute("lejeaftale",new Lejeaftale());
-        return "home/lejeaftale/createlejeaftale";
+        return "/lejeaftale/createlejeaftale";
     }
 
 
-    @PostMapping("/lejeaftale/create")
+    @PostMapping("/create")
     public String createLejeaftale(@ModelAttribute Lejeaftale l) {
         lejeaftaleService.addLejeaftale(l);
         return "redirect:/";
     }
 
     //ikke blevet testet med html og css
-    @GetMapping("/lejeaftale/delete/{lejeaftale_id}")
+    @GetMapping("/delete/{lejeaftale_id}")
     public String deletelejeaftale(@PathVariable("lejeaftale_id") int lejeaftale_id ) {
         boolean deleted = lejeaftaleService.deleteLejeaftale(lejeaftale_id);
         if(deleted) {
@@ -43,13 +43,13 @@ public class LejeaftaleController {
     }
 
 
-    @GetMapping("/lejeaftale/update/{lejeaftale_id}")
+    @GetMapping("/update/{lejeaftale_id}")
     public String updateLejeaftaleForm(@PathVariable("lejeaftale_id") int lejeaftale_id, Model model) {
         Lejeaftale lejeaftale=lejeaftaleService.findLejeaftaleById(lejeaftale_id);
         model.addAttribute("lejeaftale",lejeaftale);
-        return "home/lejeaftale/updateLejeaftale";
+        return "/lejeaftale/updateLejeaftale";
     }
-    @PostMapping("/lejeaftale/update")
+    @PostMapping("/update")
     public String updateLejeaftale(@ModelAttribute Lejeaftale lejeaftale){
         lejeaftaleService.updateLejeaftale(lejeaftale);
         return "redirect:/";

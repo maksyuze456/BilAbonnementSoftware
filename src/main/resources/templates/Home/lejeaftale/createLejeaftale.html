@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/dataForsiden.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+
+    <title>Dataregistrering</title>
+</head>
+<body>
+<div class="page">
+    <div class="nav">
+        <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
+
+
+        <div style="display: flex; align-items: center;">
+            <h2>Dataregistrering</h2>
+            <img src="/images/database.png" style="margin-left: 10px; width: 50px; height: 50px;">
+        </div>
+        <div class="section">
+            <a href="/dataregForsiden">
+                <img src="/images/database.png">
+                <h3>Dataregistrering</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/">
+                <img src="/images/tools.png">
+                <h3>Skade&Udbedring</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/forretningsudvikler">
+                <img src="/images/briefcase.png">
+                <h3>Forretningsudvikler</h3>
+            </a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1>Dataregistrering</h1>
+        <h2>Update lejeaftale</h2>
+        <form action="/lejeaftale/update" method="post">
+            <input type="text" name="lejeaftale_id" th:value="${lejeaftale.lejeaftale_id}"readonly>
+            <input type="text" name="kunde_nr" th:value="${lejeaftale.kunde_nr}"readonly>
+
+            <input type="text" name="start_dato" th:value="${lejeaftale.start_dato}">
+            <input type="text" name="slut_dato" th:value="${lejeaftale.slut_dato}">
+            <input type="text" name="pris" th:value="${lejeaftale.pris}">
+            <input type="submit" value="Save changes">
+
+
+
+
+
+
+        </form>
+
+
+
+
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
