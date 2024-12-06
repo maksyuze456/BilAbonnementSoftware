@@ -1,35 +1,98 @@
-<div class="dynamic-content">
-            <div class="left">
-                <h3>Oversigt:</h3>
-                <ul>
-                    <li th:text="'Indtjening pr/mnd: ' + ${totalIncome} + ',-'">
-                    <li th:text="'Antal udlejede biler: ' + ${totalAmount}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/forsi.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
+    <title>Title</title>
+</head>
+<body>
+<div class="page">
+    <div class="nav">
+        <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
 
-                </ul>
-            </div>
-            <div class="right">
-                <div class="container">
+        <div style="display: flex; align-items: center;">
+            <h2>Dataregistrering</h2>
+            <img src="/images/database.png" style="margin-left: 10px; width: 50px; height: 50px;">
+        </div>
+        <div class="section">
 
-                    <table>
-                        <thead>
-                        <tr>
-                            <td>Stelnummer</td>
-                            <td>Mærke</td>
-                            <td>Model</td>
-                            <td>Status</td>
-                            <td>Pris pr/mnd</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="bil: ${bilList}">
-                            <td th:text="${bil.stelnummer}">
-                            <td th:text="${bil.mærke}">
-                            <td th:text="${bil.model}">
-                            <td th:text="${bil.bilStatus}">
-                            <td th:text="${bil.leasingPrice}+',-'">
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <a href="/dataregForsiden">
+                <img src="/images/database.png">
+                <h3>Dataregistrering</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/">
+                <img src="/images/tools.png">
+                <h3>Skade&Udbedring</h3>
+
+            </a>
+        </div>
+        <div class="section">
+            <a href="/forretningsudvikler">
+                <img src="/images/briefcase.png">
+                <h3>Forretningsudvikler</h3>
+            </a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1>Dataregistrering</h1>
+        <div class="main-buttons">
+
+            <a href="/lejeaftale/create">
+                <button>Lejeaftaler</button>
+            </a>
+            <a href="/bil/create">
+                <button>Biler</button>
+            </a>
+        </div>
+        <div class="dynamic-content">
+
+
+            <div >
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Lejeaftale ID</td>
+                        <td>Kunder nummer</td>
+                        <td>Stelnummer</td>
+                        <td>Start Dato</td>
+                        <td>Slut Dato</td>
+                        <td>Pris</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="lejeaftale : ${lejeaftaleList}">
+                        <td th:text="${lejeaftale.lejeaftale_id}"></td>
+                        <td th:text="${lejeaftale.kunde_nr}"></td>
+                        <td th:text="${lejeaftale.stelnummer}"></td>
+                        <td th:text="${lejeaftale.start_dato}"></td>
+                        <td th:text="${lejeaftale.slut_dato}"></td>
+                        <td th:text="${lejeaftale.pris}"></td>
+                    </tr>
+                    <tr>
+                        <form th:action="@{/lejeaftale/add}" th:object="${lejeaftale}" method="post">
+                            <td><input type="text" th:field="*{lejeaftale_id}" /></td>
+                            <td><input type="text" th:field="*{kunde_nr}" /></td>
+                            <td><input type="text" th:field="*{stelnummer}" /></td>
+                            <td><input type="date" th:field="*{start_dato}" /></td>
+                            <td><input type="date" th:field="*{slut_dato}" /></td>
+                            <td><input type="text" th:field="*{pris}" /></td>
+                            <td><button type="submit">Tilføj</button></td>
+                        </form>
+                    </tr>
+                    </tbody>
+
+                </table>
+
             </div>
         </div>
+    </div>
+</div>
+
+</body>
+</html>

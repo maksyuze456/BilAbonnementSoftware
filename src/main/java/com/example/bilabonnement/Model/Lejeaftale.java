@@ -9,7 +9,6 @@ import java.util.Date;
 @Table(name = "lejeaftale")
 public class Lejeaftale {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int lejeaftale_id;
     private int kunde_nr;

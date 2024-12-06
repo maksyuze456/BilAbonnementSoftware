@@ -26,7 +26,7 @@ public class LejeaftaleService {
     public Boolean deleteLejeaftale(int id){
         return lejeaftaleRepository.deleteLejeaftale(id);
     }
-    public void updateejeaftale(Lejeaftale l){
+    public void updateLejeaftale(Lejeaftale l){
         lejeaftaleRepository.updateLejeaftale(l);
     }
 }

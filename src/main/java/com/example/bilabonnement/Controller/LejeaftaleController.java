@@ -5,10 +5,9 @@ import com.example.bilabonnement.Service.LejeaftaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+@RequestMapping("/lejeaftale")
 
 @Controller
 public class LejeaftaleController {
@@ -20,8 +19,8 @@ public class LejeaftaleController {
 
 
     @GetMapping("/lejeaftale/create")
-    public String createLejeaftale(Model moel) {
-        moel.addAttribute("lejeaftale",new Lejeaftale());
+    public String createLejeaftaleForm(Model model) {
+        model.addAttribute("lejeaftale",new Lejeaftale());
         return "home/lejeaftale/createlejeaftale";
     }
 
@@ -33,26 +32,27 @@ public class LejeaftaleController {
     }
 
     //ikke blevet testet med html og css
-    @GetMapping("/lejeaftale/delete/{id}")
-    public String deletelejeaftale(@PathVariable("id") int id) {
-        boolean deleted = lejeaftaleService.deleteLejeaftale(id);
+    @GetMapping("/lejeaftale/delete/{lejeaftale_id}")
+    public String deletelejeaftale(@PathVariable("lejeaftale_id") int lejeaftale_id ) {
+        boolean deleted = lejeaftaleService.deleteLejeaftale(lejeaftale_id);
         if(deleted) {
             return "redirect:/";
         } else{
-            return "redirect:/";
+            return "redirect:/error";
         }
     }
 
 
-    @GetMapping("/lejeaftale/update/{lejeaftal_id}")
-    public String updateLejeaftale(@PathVariable("lejeaftal_id") int lejeaftale_id, Model model) {
-        model.addAttribute("lejeaftale_id", lejeaftaleService.findLejeaftaleById(lejeaftale_id));
+    @GetMapping("/lejeaftale/update/{lejeaftale_id}")
+    public String updateLejeaftaleForm(@PathVariable("lejeaftale_id") int lejeaftale_id, Model model) {
+        Lejeaftale lejeaftale=lejeaftaleService.findLejeaftaleById(lejeaftale_id);
+        model.addAttribute("lejeaftale",lejeaftale);
         return "home/lejeaftale/updateLejeaftale";
     }
     @PostMapping("/lejeaftale/update")
     public String updateLejeaftale(@ModelAttribute Lejeaftale lejeaftale){
-        lejeaftaleService.updateejeaftale(lejeaftale);
-        return "redirect/";
+        lejeaftaleService.updateLejeaftale(lejeaftale);
+        return "redirect:/";
 
 
     }

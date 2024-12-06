@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" th:href="@{/forsi.css}">
-  <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
-  <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
-  <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
-  <title>Title</title>
+  <link rel="stylesheet" th:href="@{/dataForsiden.css}">
+  <link rel="stylesheet" th:href="@{/table.css}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+  <title>Dataregistrering</title>
 </head>
 <body>
 <div class="page">
@@ -14,11 +16,10 @@
     <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
 
     <div style="display: flex; align-items: center;">
-  <h2>Dataregistrering</h2>
-  <img src="/images/database.png" style="margin-left: 10px; width: 50px; height: 50px;">
-</div>
+      <h2>Dataregistrering</h2>
+      <img src="/images/database.png" style="margin-left: 10px; width: 50px; height: 50px;">
+    </div>
     <div class="section">
-
       <a href="/dataregForsiden">
         <img src="/images/database.png">
         <h3>Dataregistrering</h3>
@@ -28,7 +29,6 @@
       <a href="/">
         <img src="/images/tools.png">
         <h3>Skade&Udbedring</h3>
-
       </a>
     </div>
     <div class="section">
@@ -40,27 +40,43 @@
   </div>
   <div class="main-content">
     <h1>Dataregistrering</h1>
-    <div class="main-buttons">
 
-      <a href="/lejeaftale/create">
-        <button>Lejeaftaler</button>
-      </a>
-      <a href="/bil/create">
-        <button>Biler</button>
-      </a>
-    </div>
+    <a href="/home/lejeaftale/create">
+      <button class="btn-createlejeaftale, btn" id="btn-createlejeaftale">Opret en ny lejeaftale</button>
+    </a>
     <div class="dynamic-content">
-      <div class="left">
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-      </div>
-      <div class="right">
+      <table>
+        <thead>
+          <tr>
+            <th>Lejeaftale ID</th>
+            <th>Kunde Nr</th>
+            <th>Stelnummer</th>
+            <th>Start Dato</th>
+            <th>Slut Dato</th>
+            <th>Pris</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="lejeaftale : ${lejeaftaler}">
+            <td th:text="${lejeaftale.lejeaftale_id}"></td>
+            <td th:text="${lejeaftale.kunde_nr}"></td>
 
-      </div>
+            <td th:text="${lejeaftale.start_dato}"></td>
+            <td th:text="${lejeaftale.slut_dato}"></td>
+            <td th:text="${lejeaftale.pris}"></td>
+            <td>
+              <a th:href="@{'/lejeaftale/delete/' + ${lejeaftale.lejeaftale_id}}">
+                <button class="btn-deletelejeaftale" id="btn-deletelejeaftale">Slet</button>
+              </a>
+              <a th:href="@{'/lejeaftale/update/' + ${lejeaftale.lejeaftale_id}}">
+                <button class="btn-updatelejeaftale" id="btn-updatelejeaftale">Update</button>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-
 </body>
 </html>
