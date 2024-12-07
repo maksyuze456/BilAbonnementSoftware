@@ -3,7 +3,7 @@ package com.example.bilabonnement.Model;
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "lejeaftale")
@@ -13,10 +13,10 @@ public class Lejeaftale {
     private int lejeaftale_id;
     private int kunde_nr;
     private String stelnummer;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
 
     private Date start_dato;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
 
     private Date slut_dato;
     private double pris;

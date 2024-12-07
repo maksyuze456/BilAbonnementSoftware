@@ -15,14 +15,11 @@ public class HomeController {
     LejeaftaleService lejeaftaleService;
 
     @GetMapping("/")
-    public String homePage() {
+    public String homePage(Model model) {
+        model.addAttribute("biler",bilService.fetchAllBil());
+        model.addAttribute("lejeaftaler",lejeaftaleService.fetchAllLejeaftale());
         return "home/forside";
     }
-    @GetMapping("/dataregForsiden")
-    public String index(Model model) {
-        model.addAttribute("biler", bilService.fetchAllBil());
-        model.addAttribute("lejeaftaler", lejeaftaleService.fetchAllLejeaftale());
-        return "home/dataregForsiden";
-    }
+
 
 }

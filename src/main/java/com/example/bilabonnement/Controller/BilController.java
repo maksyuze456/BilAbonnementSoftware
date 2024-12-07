@@ -18,7 +18,7 @@ public class BilController {
     @GetMapping("/bil/create")
     public String createBil(Model model) {
         model.addAttribute("bil", new Bil());
-        return "home/bil/createBil";
+        return "bil/createBil";
     }
 
     @PostMapping("/bil/create")
@@ -40,7 +40,7 @@ public class BilController {
     @GetMapping("/updateBil/{stelnummer}")
     public String updateBil(@PathVariable("stelnummer") String stelnummer, Model model) {
         model.addAttribute("bil", bilService.findBilByStelNummer(stelnummer));
-        return "home/bil/updateBil";
+        return "bil/updateBil";
     }
 
     @PostMapping("/update")
