@@ -19,16 +19,17 @@ public class Bil {
 
     private int odometer;
 
-    private String afhentningsted;
+
+
 public Bil(){}
 
-public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer,String afhentningsted) {
+public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer) {
     this.stelnummer = stelnummer;
     this.mærke = mærke;
     this.model = model;
     this.brandstof = brandstof;
     this.odometer = odometer;
-    this.afhentningsted=afhentningsted;
+
 }
 
 
@@ -73,13 +74,5 @@ public Bil(String stelnummer, String mærke, String model, String brandstof, int
         this.odometer = odometer;
     }
 
-
-public String getAfhentningsted() {
-    return afhentningsted;
-}
-
-public void setAfhentningsted(String afhentningsted) {
-    this.afhentningsted = afhentningsted;
-}
 
 }

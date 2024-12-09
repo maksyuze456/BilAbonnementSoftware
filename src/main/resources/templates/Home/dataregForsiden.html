@@ -54,6 +54,8 @@
             <th>Start Dato</th>
             <th>Slut Dato</th>
             <th>Pris</th>
+            <th>Afhentningsted</th>
+
           </tr>
         </thead>
         <tbody>
@@ -64,6 +66,9 @@
             <td th:text="${lejeaftale.start_dato}"></td>
             <td th:text="${lejeaftale.slut_dato}"></td>
             <td th:text="${lejeaftale.pris}"></td>
+            <td th:text="${lejeaftale.afhentningsted}"></td>
+
+
             <td>
               <a th:href="@{'/lejeaftale/delete/' + ${lejeaftale.lejeaftale_id}}">
                 <button class="btn-deletelejeaftale" id="btn-deletelejeaftale">Slet</button>
