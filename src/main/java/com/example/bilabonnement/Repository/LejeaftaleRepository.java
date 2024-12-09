@@ -21,7 +21,7 @@ public class LejeaftaleRepository {
         return template.query(sql, rowMapper);
     }
     public void addLejeaftale(Lejeaftale l){
-        String sql ="INSERT INTO lejeaftale(lejeaftal_id, kunde_nr,stelnummer,start_dato,slut_dato,pris) VALUES(?,?,?,?,?,?) ";
+        String sql ="INSERT INTO lejeaftale(lejeaftale_id, kunde_nr,stelnummer,start_dato,slut_dato,pris) VALUES(?,?,?,?,?,?) ";
         template.update(sql,l.getLejeaftale_id(),l.getKunde_nr(),l.getStelnummer(),l.getStart_dato(),l.getSlut_dato(),l.getPris());
     }
     public Lejeaftale findLejeaftaleById(int lejeaftale_id) {
@@ -31,7 +31,7 @@ public class LejeaftaleRepository {
             return template.queryForObject(sql, rowMapper, lejeaftale_id);
         } catch (EmptyResultDataAccessException e) {
             System.out.println("No lejeaftale found for ID: " + lejeaftale_id);
-            return null; // Returner null, hvis posten ikke findes
+            return null;
         }
     }
 

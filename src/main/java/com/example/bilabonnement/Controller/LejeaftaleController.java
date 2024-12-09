@@ -27,7 +27,8 @@ public class LejeaftaleController {
 
 
     @GetMapping("/create")
-    public String createLejeaftaleForm() {
+    public String createLejeaftaleForm(Model model) {
+        model.addAttribute("lejeaftale", new Lejeaftale());
         return "home/lejeaftale/createlejeaftale";
     }
 
