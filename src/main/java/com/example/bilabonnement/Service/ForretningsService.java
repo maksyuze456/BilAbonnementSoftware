@@ -20,6 +20,9 @@ public class ForretningsService {
         List<Map<String, Object>> udlejedeCars = fetchAllLeased();
         int totalIncome = 0;
         for(Map<String,Object> map: udlejedeCars) {
+            if(map.get("leasingPrice") == null) {
+                map.put("leasingPrice", 0);
+            }
             totalIncome = addPricesTogether(totalIncome, (Integer) map.get("leasingPrice"));
         }
         return totalIncome;

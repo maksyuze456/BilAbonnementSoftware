@@ -13,7 +13,7 @@ public class ForretningsRepository {
     JdbcTemplate jdbcTemplate;
     public List<Map<String, Object>> fetchAllLeased() {
         String sql = "SELECT bil.stelnummer, bil.mærke, bil.model, bil.bilStatus, leasingPrices.leasingPrice FROM bil\n" +
-                "\tinner join leasingprices\n" +
+                "\tleft join leasingprices\n" +
                 "\ton leasingprices.leasingCarStelnummer = bil.stelnummer\n" +
                 "    where bil.bilStatus = \"Udlejet\";";
         List<Map<String, Object>> results = jdbcTemplate.queryForList(sql);
