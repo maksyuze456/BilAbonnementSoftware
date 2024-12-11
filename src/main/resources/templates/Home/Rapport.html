@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapport</title>
+    <title>Rapport Oversigt</title>
     <link rel="stylesheet" th:href="@{/forsi.css}">
     <link rel="stylesheet" th:href="@{/table.css}">
     <link rel="stylesheet" th:href="@{/rapportStyle.css}">
@@ -17,48 +17,19 @@
 </header>
 
 <main>
-    <section>
+
+    <section th:each="rapport : ${rapporter}">
         <h2>Rapport Detaljer</h2>
         <p><strong>ID:</strong> <span th:text="${rapport.rapportID}"></span></p>
         <p><strong>Beskrivelse:</strong> <span th:text="${rapport.beskrivelse}"></span></p>
         <p><strong>Oprettelsesdato:</strong> <span th:text="${rapport.oprettetDato}"></span></p>
         <p><strong>Stelnummer:</strong> <span th:text="${rapport.stelnummer}"></span></p>
+        <br>
     </section>
-
-
-    <section>
-        <h2>Skader</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>Skade ID</th>
-                <th>Pris</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="skade : ${skader}">
-                <td th:text="${skade.skadeID}"></td>
-                <td th:text="${skade.pris}"></td>
-            </tr>
-            </tbody>
-        </table>
-        <p><strong>Total Pris:</strong> <span th:text="${totalPris}"></span> kr.</p>
-    </section>
-
-
-    <section>
-        <h2>Tilføj Ny Skade</h2>
-        <form th:action="@{/rapporter/{id}/addSkade(id=${rapport.rapportID})}" method="post">
-            <label for="pris">Pris:</label>
-            <input type="number" id="pris" name="pris" step="0.01" required>
-            <button type="submit">Tilføj Skade</button>
-        </form>
-    </section>
-
-
-    <footer>
-        <a href="/rapporter/">Tilbage til Oversigt</a>
-    </footer>
 </main>
+
+<footer>
+    <a href="/rapporter/">Tilbage til Oversigt</a>
+</footer>
 </body>
 </html>

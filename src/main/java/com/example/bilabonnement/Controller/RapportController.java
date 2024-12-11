@@ -31,7 +31,7 @@ public class RapportController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("rapport", new Rapport());
-        return "createRapport";
+        return "home/createRapport";
     }
 
     @PostMapping("/create")

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class RapportRepo {
     @Autowired
-    static JdbcTemplate template;
+    JdbcTemplate template;
 
     public List<Rapport> fetchAll(){
         String sql = "SELECT * FROM Rapport";
@@ -19,7 +19,7 @@ public class RapportRepo {
         return template.query(sql,rowMapper);
     }
 
-    public static void addRapport(Rapport r){
+    public void addRapport(Rapport r){
         String sql = "INSERT INTO rapport(rapportID, beskrivelse, oprettetDato, stelnummer) VAlues(?,?,?,?)";
         template.update(sql,r.getRapportID(),r.getBeskrivelse(), r.getOprettetDato(),r.getStelnummer());
     }
