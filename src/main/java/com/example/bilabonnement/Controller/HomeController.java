@@ -9,15 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 
 public class HomeController {
-    @Autowired
-    BilService bilService;
-    @Autowired
-    LejeaftaleService lejeaftaleService;
 
     @GetMapping("/")
     public String homePage(Model model) {
-        model.addAttribute("biler",bilService.fetchAllBil());
-        model.addAttribute("lejeaftaler",lejeaftaleService.fetchAllLejeaftale());
+
         return "home/forside";
     }
 
