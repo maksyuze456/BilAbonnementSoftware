@@ -20,8 +20,8 @@ public class RapportRepo {
     }
 
     public void addRapport(Rapport r){
-        String sql = "INSERT INTO rapport(rapportID, beskrivelse, oprettetDato, stelnummer) VAlues(?,?,?,?)";
-        template.update(sql,r.getRapportID(),r.getBeskrivelse(), r.getOprettetDato(),r.getStelnummer());
+        String sql = "INSERT INTO rapport(stelnummer, beskrivelse, oprettetdato) VAlues(?,?,?)";
+        template.update(sql,r.getStelnummer(), r.getBeskrivelse(),r.getOprettetDato());
     }
 
     public Rapport findRapportByID(int rapportID){

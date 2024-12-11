@@ -2,51 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opret Rapport</title>
-    <link rel="stylesheet" th:href="@{/rapportStyle.css}">
     <link rel="stylesheet" th:href="@{/forsi.css}">
-    <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="stylesheet" th:href="@{/opretForm.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
+    <title>Title</title>
 </head>
 <body>
 <div class="page">
     <div class="nav">
-        <img id="logo" th:src="@{/images/logo.png}" alt="Logo">
-        <h2>Navigation</h2>
+        <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
+        <h2>**</h2>
         <div class="section">
-            <a th:href="@{/rapporter/}">
-                <img th:src="@{/images/tools.png}" alt="Tools">
-                <h3>Rapporter</h3>
+            <a href="/">
+                <img src="/images/database.png">
+                <h3>Dataregistrering</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/rapporter/">
+                <img src="/images/tools.png">
+                <h3>Skade&Udbedring</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/forretningsudvikler">
+                <img src="/images/briefcase.png">
+                <h3>Forretningsudvikler</h3>
             </a>
         </div>
     </div>
     <div class="main-content">
-        <h1>Opret Ny Rapport</h1>
-       <form th:action="@{/rapporter/create}" th:object="${rapport}" method="post">
+        <h2>Skade&Udbedring</h2>
+        <div class="main-buttons">
+            <a href="/rapporter/">
+                <button>Alle rapporter</button>
+            </a>
+            <a href="">
+                <button>Registrering</button>
+            </a>
+            <a href="">
+                <button>Biler</button>
+            </a>
+            <a href="">
+                <button>Rapporter</button>
+            </a>
+            <a href="create">
+                <button id="active">Opret rapport</button>
+            </a>
+        </div>
+        <div class="create-container">
+            <div class="create-form">
+                <h3>Opret Skade Rapport'</h3>
+                <div class="form">
+                    <form th:action="@{/rapporter/create}" method="post">
+                        <label>
+                            Stelnummer:
+                            <input type="text" th:field="${rapport.stelnummer}">
+                        </label>
+                        <label>
+                            Beskrivelse:
+                            <input type="text" th:field="${rapport.beskrivelse}">
+                        </label>
+                        <label>
+                            Oprettelse dato:
+                            <input type="date" th:field="${rapport.oprettetDato}">
+                        </label>
 
-            <label for="rapportID">Rapport ID:</label>
-            <input type="number" id="rapportID" th:field="*{rapportID}" required><br>
 
+                        <button type="submit">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-             <label for="beskrivelse">Beskrivelse:</label>
-             <input type="text" id="beskrivelse" th:field="*{beskrivelse}" required><br>
-
-
-             <label for="oprettetDato">Oprettelsesdato:</label>
-             <input type="date" id="oprettetDato" th:field="*{oprettetDato}" required><br>
-
-
-             <label for="stelnummer">Stelnummer:</label>
-             <input type="text" id="stelnummer" th:field="*{stelnummer}" required><br>
-
-             <button type="submit">Opret Rapport</button>
-         </form>
-
-
-     </div>
- </div>
- </body>
- </html>
+</body>
+</html>
