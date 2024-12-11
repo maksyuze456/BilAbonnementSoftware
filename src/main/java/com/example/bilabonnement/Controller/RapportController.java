@@ -25,13 +25,13 @@ public class RapportController {
     public String index(Model model) {
         model.addAttribute("rapporter", rapportService.fetchAll());
 
-        return "home/rapport";
+        return "skade/skadeudbedring";
     }
 
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("rapport", new Rapport());
-        return "home/createRapport";
+        return "skade/createRapport";
     }
 
     @PostMapping("/create")
