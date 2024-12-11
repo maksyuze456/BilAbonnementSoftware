@@ -3,34 +3,35 @@ package com.example.bilabonnement.Model;
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "lejeaftale")
 public class Lejeaftale {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int lejeaftale_id;
     private int kunde_nr;
     private String stelnummer;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
 
     private Date start_dato;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
 
     private Date slut_dato;
     private double pris;
+    private String afhentningsted;
     public Lejeaftale(){
 
     }
-    public Lejeaftale(int lejeaftale_id, int kunde_nr, String stelnummer, Date start_dato, Date slut_dato, double pris) {
+    public Lejeaftale(int lejeaftale_id, int kunde_nr, String stelnummer, Date start_dato, Date slut_dato, double pris,String afhentningsted) {
         this.lejeaftale_id = lejeaftale_id;
         this.kunde_nr = kunde_nr;
         this.stelnummer = stelnummer;
         this.start_dato = start_dato;
         this.slut_dato = slut_dato;
         this.pris = pris;
+        this.afhentningsted=afhentningsted;
     }
 
     public int getLejeaftale_id() {
@@ -79,5 +80,13 @@ public class Lejeaftale {
 
     public void setPris(double pris) {
         this.pris = pris;
+    }
+
+    public String getAfhentningsted() {
+        return afhentningsted;
+    }
+
+    public void setAfhentningsted(String afhentningsted) {
+        this.afhentningsted = afhentningsted;
     }
 }
