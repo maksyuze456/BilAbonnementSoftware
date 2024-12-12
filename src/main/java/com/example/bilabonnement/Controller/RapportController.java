@@ -69,14 +69,15 @@ public class RapportController {
         skadeService.addSkade(skade);
         return "redirect:/rapporter/" + rapportID;
     }
-    @GetMapping("/updateOne/{rapportID}")
-    public String updateOne(@PathVariable("rapportID") int id, Model model){
+    @GetMapping("updateOne/{rapportID}")
+    public String updateOne(@PathVariable("rapportID") int id, Model model) {
         model.addAttribute("rapport", rapportService.findRapportById(id));
         return "skade/updateRapport";
     }
+
     @PostMapping("/update")
-    public String update(@ModelAttribute Rapport r){
+    public String update(@ModelAttribute Rapport r) {
         rapportService.updateRapport(r);
-        return "redirect:/";
+        return "redirect:/rapporter/";
     }
 }

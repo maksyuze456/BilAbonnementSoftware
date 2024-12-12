@@ -8,8 +8,6 @@ import java.sql.Date;
 public class Rapport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private int skadeID;
     private int rapportID;
         private String beskrivelse;
         private Date oprettetDato;

@@ -35,8 +35,8 @@ public class RapportRepo {
         String sql = "DELETE FROM rapport WHERE rapportID = ?";
         return template.update(sql, rapportID) > 0;
     }
-    public void updateRapport(Rapport r){
+    public void updateRapport(Rapport r) {
         String sql = "UPDATE rapport SET beskrivelse = ?, oprettetDato = ?, stelnummer = ? WHERE rapportID = ?";
-        template.update(sql, r.getBeskrivelse(), r.getOprettetDato(), r.getRapportID(), r.getStelnummer());
+        template.update(sql, r.getBeskrivelse(), r.getOprettetDato(), r.getStelnummer(), r.getRapportID());
     }
 }

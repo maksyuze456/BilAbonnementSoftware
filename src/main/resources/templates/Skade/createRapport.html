@@ -56,7 +56,7 @@
             <div class="create-form">
                 <h3>Opret Skade Rapport'</h3>
                 <div class="form">
-                    <form th:action="@{/rapporter/create}" method="post">
+                    <a th:action="@{/rapporter/create}" method="post">
                         <label>
                             Stelnummer:
                             <input type="text" th:field="${rapport.stelnummer}">
@@ -69,10 +69,8 @@
                             Oprettelse dato:
                             <input type="date" th:field="${rapport.oprettetDato}">
                         </label>
-
-
                         <button type="submit">Create</button>
-                    </form>
+                    </a>
                 </div>
             </div>
         </div>
