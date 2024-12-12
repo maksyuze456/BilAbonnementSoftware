@@ -22,8 +22,8 @@ public class BilRepository {
     }
     public void addBil(Bil bil){
 
-        String sql = "INSERT INTO bil(stelnummer,mærke,model,brandstof,odometer)VALUES(?,?,?,?,?)";
-        template.update(sql,bil.getStelnummer(),bil.getMærke(),bil.getModel(),bil.getBrandstof(),bil.getOdometer());
+        String sql = "INSERT INTO bil(stelnummer,mærke,model,brandstof,odometer, bilStatus)VALUES(?,?,?,?,?,?)";
+        template.update(sql,bil.getStelnummer(),bil.getMærke(),bil.getModel(),bil.getBrandstof(),bil.getOdometer(),bil.getBilStatus());
     }
     public Bil findBilByStelNummer(String stelnummer) {
         String sql = "SELECT * FROM bil WHERE stelnummer=?";
@@ -42,8 +42,8 @@ public class BilRepository {
 
         }
         public void updateBil (Bil b){
-            String sql = "UPDATE bil SET mærke=?,model=?,brandstof=?,odometer=? WHERE stelnummer=? ";
-            template.update(sql, b.getMærke(), b.getModel(), b.getBrandstof(), b.getOdometer(), b.getStelnummer());
+            String sql = "UPDATE bil SET mærke=?,model=?,brandstof=?,odometer=?, bilStatus=? WHERE stelnummer=? ";
+            template.update(sql, b.getMærke(), b.getModel(), b.getBrandstof(), b.getOdometer(), b.getBilStatus(), b.getStelnummer());
         }
 
 
