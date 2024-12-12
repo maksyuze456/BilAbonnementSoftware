@@ -42,7 +42,7 @@ public class RapportController {
 
     @GetMapping("/{id}")
     public String viewRapport(@PathVariable("id") int rapportID, Model model) {
-        Rapport rapport = rapportService.findRapportByID(rapportID);
+        Rapport rapport = rapportService.findRapportById(rapportID);
         if (rapport == null) {
             model.addAttribute("errorMessage", "Rapport ikke fundet.");
             return "error";
@@ -54,13 +54,13 @@ public class RapportController {
         model.addAttribute("skader", skader);
         model.addAttribute("totalPris", totalPris);
 
-        return "rapport";
+        return "skade/rapport";
     }
 
-    @GetMapping("/deleteOne/{id}")
-    public String deleteOne(@PathVariable("id") int rapportID) {
+    @PostMapping("/deleteOne/{rapportID}")
+    public String deleteOne(@PathVariable("rapportID") int rapportID) {
         rapportService.deleteRapport(rapportID);
-        return "redirect:/rapporter";
+        return "redirect:/rapporter/";
     }
 
     @PostMapping("/{id}/addSkade")
@@ -68,5 +68,15 @@ public class RapportController {
         skade.setRapportID(rapportID);
         skadeService.addSkade(skade);
         return "redirect:/rapporter/" + rapportID;
+    }
+    @GetMapping("/updateOne/{rapportID}")
+    public String updateOne(@PathVariable("rapportID") int id, Model model){
+        model.addAttribute("rapport", rapportService.findRapportById(id));
+        return "skade/updateRapport";
+    }
+    @PostMapping("/update")
+    public String update(@ModelAttribute Rapport r){
+        rapportService.updateRapport(r);
+        return "redirect:/";
     }
 }

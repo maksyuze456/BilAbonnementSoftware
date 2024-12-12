@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/forsi.css}">
     <link rel="stylesheet" th:href="@{/table.css}">
-    <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsUdlejede.css}">
+    <link rel="stylesheet" th:href="@{/Skade/skadeAlleRapporter.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
@@ -35,10 +35,10 @@
         </div>
     </div>
     <div class="main-content">
-        <h2>Forretningsudvikler</h2>
+        <h2>Skade&Udbedring</h2>
         <div class="main-buttons">
             <a href="">
-                <button id="active">Alle udlejede</button>
+                <button id="active">Alle rapporter</button>
             </a>
             <a href="">
                 <button>Registrering</button>
@@ -49,13 +49,16 @@
             <a href="">
                 <button>Rapporter</button>
             </a>
+            <a href="create">
+                <button>Opret Rapport</button>
+            </a>
         </div>
         <div class="dynamic-content">
             <div class="left">
                 <h3>Oversigt:</h3>
                 <ul>
-                    <li th:text="'Indtjening pr/mnd: ' + ${totalIncome} + ',-'">
-                    <li th:text="'Antal udlejede biler: ' + ${totalAmount}">
+                    <li>test</li>
+                    <li>test</li>
 
                 </ul>
             </div>
@@ -64,26 +67,45 @@
 
                     <table>
                         <thead>
+
+                        <tbody>
+                        <tr>
+                            <td>Rapport Id</td>
+                            <td th:text="${rapport.rapportID}">
+                        </tr>
                         <tr>
                             <td>Stelnummer</td>
-                            <td>Mærke</td>
-                            <td>Model</td>
-                            <td>Status</td>
-                            <td>Pris pr/mnd</td>
+                            <td th:text="${rapport.stelnummer}">
                         </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="bil: ${bilList}">
-                            <td th:text="${bil.stelnummer}">
-                            <td th:text="${bil.mærke}">
-                            <td th:text="${bil.model}">
-                            <td th:text="${bil.bilStatus}">
-                            <td th:text="${bil.leasingPrice}+',-'">
-
+                        <tr>
+                            <td>Beskrivelse</td>
+                            <td th:text="${rapport.beskrivelse}">
+                        </tr>
+                        <tr>
+                            <td><Id>Oprettelses Dato</Id></td>
+                            <td th:text="${rapport.oprettetDato}">
                         </tr>
                         </tbody>
-                    </table>
-                </div>
+                        </table>
+                    <div class="table-buttons">
+                        <a th:href="@{'updateOne/' + ${rapport.rapportID}}">
+                            <button>Redigere</button>
+                        </a>
+
+
+
+                        <form th:action="@{/rapporter/deleteOne/{rapportID}(rapportID=${rapport.rapportID})}" method="post">
+                            <button type="submit">Slet</button>
+                        </form>
+
+
+                    </div>
+
+                            </thead>
+
+
+
+            </div>
             </div>
         </div>
     </div>

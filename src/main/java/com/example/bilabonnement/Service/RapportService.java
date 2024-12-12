@@ -15,13 +15,12 @@ public class RapportService {
         return rapportRepo.fetchAll();
     }
     public void addRapport(Rapport r){rapportRepo.addRapport(r);}
-    public Rapport findRapportByID(int rapportID){
+    public Rapport findRapportById(int rapportID){
         return rapportRepo.findRapportByID(rapportID);
     }
     public Boolean deleteRapport(int rapportID){
         return rapportRepo.deleteRapport(rapportID);
     }
-    public void updateRapport(Rapport r){
-        rapportRepo.updateRapport(r);
+    public void updateRapport (Rapport r){rapportRepo.updateRapport(r);
     }
 }
