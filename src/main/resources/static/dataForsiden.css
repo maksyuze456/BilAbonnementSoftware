@@ -99,7 +99,6 @@ h1, h2,h3 {
     display: grid;
     gap: 10px;
     grid-template-areas: "left right";
-    grid-template-columns: 0.5fr 1fr;
 }
 .left {
 
@@ -107,5 +106,4 @@ h1, h2,h3 {
 .right {
 
 }
-
 

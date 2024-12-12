@@ -29,11 +29,10 @@ public class BilRepository {
         String sql = "SELECT * FROM bil WHERE stelnummer=?";
 
         RowMapper<Bil> rowMapper = new BeanPropertyRowMapper<>(Bil.class);
-        try {
-            return template.queryForObject(sql, rowMapper, stelnummer);
-        } catch (Exception e) {
-            return null;
-        }
+        Bil b =template.queryForObject(sql,rowMapper,stelnummer);
+        return b;
+
+
     }
 
 

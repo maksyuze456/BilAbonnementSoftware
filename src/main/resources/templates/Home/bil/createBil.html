@@ -9,10 +9,8 @@
 <body>
     <h1>Create Bil</h1>
     <form th:action="@{/bil/create}" th:object="${bil}" method="post">
-        <label for="stelnummer">Stelnummer:</label>
-        <input type="text" id="stelnummer" th:field="*{stelnummer}"><br>
-        <label for="model">Model:</label>
-        <input type="text" id="model" th:field="*{model}"><br>
+
+
         <button type="submit">Create</button>
     </form>
 </body>

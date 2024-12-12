@@ -19,7 +19,14 @@ public class Bil {
 
     private int odometer;
     private String bilStatus;
-    public Bil(){}
+
+
+
+
+    public Bil(){
+
+    }
+
 
     public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer, String bilStatus) {
     this.stelnummer = stelnummer;
@@ -29,6 +36,8 @@ public class Bil {
     this.odometer = odometer;
     this.bilStatus = bilStatus;
 }
+
+
 
     public String getStelnummer() {
         return stelnummer;
