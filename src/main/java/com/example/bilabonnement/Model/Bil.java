@@ -18,21 +18,17 @@ public class Bil {
     private String brandstof;
 
     private int odometer;
+    private String bilStatus;
+    public Bil(){}
 
-
-
-public Bil(){}
-
-public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer) {
+    public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer, String bilStatus) {
     this.stelnummer = stelnummer;
     this.mærke = mærke;
     this.model = model;
     this.brandstof = brandstof;
     this.odometer = odometer;
-
+    this.bilStatus = bilStatus;
 }
-
-
 
     public String getStelnummer() {
         return stelnummer;
@@ -72,6 +68,14 @@ public Bil(String stelnummer, String mærke, String model, String brandstof, int
 
     public void setOdometer(int odometer) {
         this.odometer = odometer;
+    }
+
+    public String getBilStatus() {
+        return this.bilStatus;
+    }
+
+    public void setBilStatus(String bilStatus) {
+        this.bilStatus = bilStatus;
     }
 
 
