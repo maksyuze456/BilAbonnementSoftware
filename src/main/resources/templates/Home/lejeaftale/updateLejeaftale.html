@@ -45,8 +45,21 @@
         </div>
     </div>
     <div class="main-content">
-        <h1>Dataregistrering</h1>
-        <h2>Update lejeaftale</h2>
+        <div class="main-buttons">
+            <a href="/">
+                <button>Alle</button>
+            </a>
+            <a href="/">
+                <button>Registrering</button>
+            </a>
+            <a href="/">
+                <button>Biler</button>
+            </a>
+            <a href="/">
+                <button>Rapporter</button>
+            </a>
+        </div>
+        <h3>Update lejeaftale</h3>
         <form th:action="@{/lejeaftale/update}" th:object="${lejeaftale}" method="post">
             <label>
                 Lejeaftale ID:
