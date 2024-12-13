@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tilføj Skade</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Tilføj Skade</h1>
+    <form th:action="@{'/rapporter/add/' + ${rapportID}}" method="post">
+
+        <div>
+            <label for="skadebeskrivelse">Skade Beskrivelse:</label>
+            <input type="text" id="skadebeskrivelse" name="skadebeskrivelse" placeholder="Beskriv skaden..." required>
+        </div>
+
+
+        <div>
+            <label for="kategori">Kategori:</label>
+            <select id="kategori" name="kategori" required>
+                <option value="Kosmetisk">Kosmetisk</option>
+                <option value="Mekanisk">Mekanisk</option>
+                <option value="Elektrisk">Elektrisk</option>
+            </select>
+        </div>
+
+
+        <div>
+            <label for="pris">Pris:</label>
+            <input type="number" id="pris" name="pris" placeholder="Indtast pris" step="0.01" required>
+        </div>
+
+        <div>
+            <button type="submit">Tilføj Skade</button>
+        </div>
+    </form>
+
+    <div>
+        <a th:href="@{'/rapporter/' + ${rapportID}}">
+            <button>Tilbage til rapport</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
