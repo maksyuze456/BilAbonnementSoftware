@@ -36,6 +36,7 @@ public class RapportController {
 
     @PostMapping("/create")
     public String create(@ModelAttribute Rapport rapport) {
+
         rapportService.addRapport(rapport);
         return "redirect:/rapporter/";
     }
@@ -48,11 +49,11 @@ public class RapportController {
             return "error";
         }
         List<Skade> skader = skadeService.findSkaderByRapportID(rapportID);
-        double totalPris = skadeService.TotalPriceByRapportID(rapportID);
+
 
         model.addAttribute("rapport", rapport);
         model.addAttribute("skader", skader);
-        model.addAttribute("totalPris", totalPris);
+
 
         return "skade/rapport";
     }
@@ -63,13 +64,7 @@ public class RapportController {
         return "redirect:/rapporter/";
     }
 
-    @PostMapping("/{id}/addSkade")
-    public String addSkade(@PathVariable("id") int rapportID, @ModelAttribute Skade skade) {
-        skade.setRapportID(rapportID);
-        skadeService.addSkade(skade);
-        return "redirect:/rapporter/" + rapportID;
-    }
-    @GetMapping("updateOne/{rapportID}")
+    @GetMapping("update/{rapportID}")
     public String updateOne(@PathVariable("rapportID") int id, Model model) {
         model.addAttribute("rapport", rapportService.findRapportById(id));
         return "skade/updateRapport";
@@ -80,4 +75,45 @@ public class RapportController {
         rapportService.updateRapport(r);
         return "redirect:/rapporter/";
     }
+
+    //skade tilføjelser
+
+    @GetMapping("/add/{rapportID}")
+    public String add(@PathVariable int rapportID, Model model) {
+        model.addAttribute("rapport", rapportService.findRapportById(rapportID));
+        model.addAttribute("skade", new Skade());
+        return "skade/createSkade";
+    }
+
+    @PostMapping("/add/{rapportID}")
+    public String add(@PathVariable int rapportID, @ModelAttribute Skade skade) {
+        skade.setRapportID(rapportID);
+        skadeService.addSkade(skade);
+        return "redirect:/rapporter/" + rapportID;
+    }
+
+    @PostMapping("/delete/{skadeID}")
+    public String deleteSkade(@PathVariable int skadeID) {
+        Skade skade = skadeService.findSkadeById(skadeID);
+        if (skade != null) {
+            skadeService.deleteSkadeById(skadeID);
+        }
+        return "redirect:/rapporter/" + (skade != null ? skade.getRapportID() : "");
+    }
+    @GetMapping("/updateSkade/{skadeID}")
+    public String updateSkade(@PathVariable int skadeID, Model model) {
+        Skade skade = skadeService.findSkadeById(skadeID);
+        if (skade == null) {
+            model.addAttribute("errorMessage", "Skade ikke fundet.");
+            return "error";
+        }
+        model.addAttribute("skade", skade);
+        return "skade/updateSkade";
+    }
+    @PostMapping("/updateSkade")
+    public String updateSkade(@ModelAttribute Skade skade) {
+        skadeService.updateSkade(skade);
+        return "redirect:/rapporter/" + skade.getRapportID();
+    }
+
 }

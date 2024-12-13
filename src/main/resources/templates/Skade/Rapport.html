@@ -52,6 +52,7 @@
             <a href="create">
                 <button>Opret Rapport</button>
             </a>
+
         </div>
         <div class="dynamic-content">
             <div class="left">
@@ -85,10 +86,15 @@
                             <td><Id>Oprettelses Dato</Id></td>
                             <td th:text="${rapport.oprettetDato}">
                         </tr>
+
                         </tbody>
-                        </table>
+                    </table>
+                    </thead>
                     <div class="table-buttons">
-                        <a th:href="@{'updateOne/' + ${rapport.rapportID}}">
+                        <a th:href="@{/rapporter/add/{rapportID}(rapportID=${rapport.rapportID})}">
+                            <button>Tilføj Skade</button>
+                        </a>
+                        <a th:href="@{'update/' + ${rapport.rapportID}}">
                             <button>Redigere</button>
                         </a>
 
@@ -96,12 +102,40 @@
                             <button type="submit">Slet</button>
                         </form>
 
-
                     </div>
+                    <h3>Skader</h3>
+                    <table>
+                        <thead>
 
-                            </thead>
+                        <tbody>
+                    <tr>
+                        <th>Skade beskrivelse</th>
+                        <th>Kategori</th>
+                        <th>Pris</th>
+                        <th>Action</th>
+                    </tr>
+                        <tr th:if="${#lists.isEmpty(skader)}">
+                            <td colspan="4">Ingen skader tilføjet endnu.</td>
+                        </tr>
+                    <tr th:each="skade : ${skader}">
+                        <td th:text="${skade.skadebeskrivelse}"></td>
+                        <td th:text="${skade.kategori}"></td>
+                        <td th:text="${skade.pris} + ' DKK'"></td>
+                        <td>
+                            <a th:href="@{'/rapporter/updateSkade/' + ${skade.skadeID}}">
+                                <button>Opdater</button>
+                            </a>
+                            <form th:action="@{'/rapporter/delete/' + ${skade.skadeID}}" method="post">
+                                <button type="submit">Slet</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </table>
+                        </thead>
 
-            </div>
+                        </tbody>
+
+                </div>
             </div>
         </div>
     </div>

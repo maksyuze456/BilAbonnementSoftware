@@ -9,21 +9,29 @@ import java.util.List;
 @Service
 public class SkadeService {
 
-        private final SkadeRepo skadeRepo;
+    private final SkadeRepo skadeRepo;
 
-        public SkadeService(SkadeRepo skadeRepo) {
-            this.skadeRepo = skadeRepo;
-        }
-        public void addSkade(Skade skade) {
+    public SkadeService(SkadeRepo skadeRepo) {
+        this.skadeRepo = skadeRepo;
+    }
+
+    public void addSkade(Skade skade) {
         skadeRepo.addSkade(skade);
-        }
+    }
 
+    public List<Skade> findSkaderByRapportID(int rapportID) {return skadeRepo.findSkaderByRapportID(rapportID);}
 
-        public List<Skade> findSkaderByRapportID(int rapportID) {
-            return skadeRepo.findSkaderByRapportID(rapportID);
-        }
+    public void updateSkade(Skade skade) {
+        skadeRepo.updateSkade(skade);
+    }
 
-        public double TotalPriceByRapportID(int rapportID) {
-            return skadeRepo.TotalPriceByRapportID(rapportID);
-        }
+    public void deleteSkadeById(int skadeID) {
+        skadeRepo.deleteSkadeById(skadeID);
+    }
+
+    public double getTotalPriceByRapportID(int rapportID) {
+        return skadeRepo.getTotalPriceByRapportID(rapportID);
+    }
+    public Skade findSkadeById(int skadeID) {return skadeRepo.findSkadeById(skadeID);}
 }
+
