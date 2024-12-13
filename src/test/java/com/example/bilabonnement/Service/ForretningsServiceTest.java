@@ -16,7 +16,7 @@ class ForretningsServiceTest {
     @Test
     public void shouldReturnCorrectCumulativeInt() {
         forretningsService = new ForretningsService();
-        int totalSoFar = 0;
+        double totalSoFar = 0;
 
         for(int i = 0; i < 3; i++) {
             totalSoFar = forretningsService.addPricesTogether(totalSoFar, 1);

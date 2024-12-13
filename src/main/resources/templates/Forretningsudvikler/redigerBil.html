@@ -81,8 +81,15 @@
             </label>
             <label>
               Leasing price:
-              <input type="number" th:field="*{leasingPrice.leasingPrice}">
+              <input type="hidden" th:field="*{car.pris}">
+              <span th:text="${car.pris}"></span>
             </label>
+            <label>
+              Status:
+              <input type="hidden" th:field="*{car.bilStatus}">
+              <span th:text="${car.bilStatus}"></span>
+            </label>
+            <!--
             <label for="bilStatus">
               Status:
               <select name="bilStatus" id="bilStatus">
@@ -91,6 +98,7 @@
                 <option value="Udlejet">Udlejet</option>
               </select>
             </label>
+            -->
             <div class="table-buttons">
                 <button>Gem</button>
             </div>

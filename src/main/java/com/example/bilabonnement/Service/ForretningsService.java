@@ -15,31 +15,32 @@ public class ForretningsService {
     @Autowired
     ForretningsRepository forretningsRepository;
 
-    public List<Map<String, Object>> fetchAllCarsByStatusWithPrice(String bilStatus) {
-        return forretningsRepository.fetchAllCarsByStatusWithPrice(bilStatus);
+    public List<Bil> fetchAllCarsByStatus(String bilStatus) {
+        return forretningsRepository.fetchAllCarsByStatus(bilStatus);
     }
-    public int getTotalIncomeByCarStatus(String bilStatus) {
-        List<Map<String, Object>> cars = fetchAllCarsByStatusWithPrice(bilStatus);
-        int totalIncome = 0;
-        for(Map<String,Object> map: cars) {
-            totalIncome = addPricesTogether(totalIncome, (Integer) map.get("leasingPrice"));
+    public double getTotalIncomeByCarStatus(String bilStatus) {
+        List<Bil> biler = fetchAllCarsByStatus(bilStatus);
+
+        double totalIncome = 0;
+        for(Bil bil: biler) {
+            totalIncome = addPricesTogether(totalIncome, bil.getPris());
         }
         return totalIncome;
     }
-    public int addPricesTogether(int totalSoFar, int priceToAdd) {
+    public double addPricesTogether(double totalSoFar, double priceToAdd) {
         return totalSoFar + priceToAdd;
     }
     public int getTotalCarsByStatus(String bilStatus) {
-        List<Map<String, Object>> cars = fetchAllCarsByStatusWithPrice(bilStatus);
+        List<Bil> biler = fetchAllCarsByStatus(bilStatus);
         int totalAmount = 0;
-        for(Map<String,Object> map: cars) {
+        for(Bil bil: biler) {
             totalAmount ++;
         }
         return totalAmount;
     }
 
-    public Map<String, Object> fetchCarByStelnummerWithLeasingPrice(String stelnummer) {
-        return forretningsRepository.fetchCarByStelnummerWithLeasingPrice(stelnummer);
+    public Bil fetchCarByStelnummer(String stelnummer) {
+        return forretningsRepository.fetchCarByStelnummer(stelnummer);
     }
 
     public String getImgByStelnummer(String stelnummer) {
@@ -49,10 +50,6 @@ public class ForretningsService {
         } catch(NullPointerException e) {
             return "";
         }
-    }
-
-    public Bil fetchCarByStelnummer(String stelnummer) {
-        return forretningsRepository.fetchCarObjByStelnummer(stelnummer);
     }
 
     public void updateCar(Bil car) {

@@ -15,8 +15,10 @@ ul {
 .right {
     width: 100%;
 }
-.main-buttons button:hover{
-    border-color: red;
+.main-buttons button:hover,
+.main-buttons button:active,
+.main-buttons button:focus{
+    border-color: #549cc4;
     cursor: pointer;
 
 }

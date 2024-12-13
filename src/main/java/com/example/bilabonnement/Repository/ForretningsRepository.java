@@ -18,29 +18,17 @@ public class ForretningsRepository {
     JdbcTemplate jdbcTemplate;
 
 
-    public List<Map<String, Object>> fetchAllCarsByStatusWithPrice(String carStatus) {
-        String sql = "SELECT bil.stelnummer, bil.mærke, bil.model, bil.brandstof, bil.bilStatus, leasingPrices.leasingPrice FROM bil " +
-                     "left join leasingprices " +
-                     "on leasingprices.stelnummer = bil.stelnummer " +
-                     "where bil.bilStatus = ?";
-        List<Map<String, Object>> results = jdbcTemplate.queryForList(sql, carStatus);
-        return results;
+    public List<Bil> fetchAllCarsByStatus(String carStatus) {
+        String sql = "SELECT * from bil where bilStatus = ?";
+        RowMapper<Bil> rowMapper = new BeanPropertyRowMapper<>(Bil.class);
+        return jdbcTemplate.query(sql, rowMapper, carStatus);
 
     }
-    public Map<String, Object> fetchCarByStelnummerWithLeasingPrice(String stelnummer) {
-        String sql = "SELECT bil.stelnummer, bil.mærke, bil.model, bil.brandstof, bil.odometer, bil.bilStatus, leasingPrices.leasingPrice FROM bil\n" +
-                "\t left join leasingprices\n" +
-                "\ton leasingprices.stelnummer = bil.stelnummer\n" +
-                "    where bil.stelnummer = ?;";
-        Map<String, Object> results = jdbcTemplate.queryForMap(sql, stelnummer);
-        return results;
-
-    }
-
-    public Bil fetchCarObjByStelnummer(String stelnummer) {
-        String sql = "SELECT * FROM bil where bil.stelnummer = ?";
+    public Bil fetchCarByStelnummer(String stelnummer) {
+        String sql = "SELECT * from bil where stelnummer = ?";
         RowMapper<Bil> rowMapper = new BeanPropertyRowMapper<>(Bil.class);
         return jdbcTemplate.queryForObject(sql, rowMapper, stelnummer);
+
     }
 
     public Map<String, Object> fetchImgByStelnummer(String stelnummer) {
@@ -58,7 +46,7 @@ public class ForretningsRepository {
     }
 
     public void updateCar(Bil car){
-        String sql = "update bil set mærke = ?, model = ?, brandstof = ?, odometer = ?, bilStatus = ? where bil.stelnummer = ?;";
-        jdbcTemplate.update(sql, car.getMærke(), car.getModel(), car.getBrandstof(), car.getOdometer(), car.getBilStatus(), car.getStelnummer());
+        String sql = "update bil set mærke = ?, model = ?, brandstof = ?, odometer = ? where bil.stelnummer = ?;";
+        jdbcTemplate.update(sql, car.getMærke(), car.getModel(), car.getBrandstof(), car.getOdometer(), car.getStelnummer());
     }
 }

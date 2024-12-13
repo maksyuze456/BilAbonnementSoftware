@@ -17,6 +17,12 @@ table {
 .left img {
     width: 100%;
 }
+.left {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+
+}
 .main-content {
     height: 87vh;
 }

@@ -77,17 +77,11 @@
                             Odometer:
                             <input type="number" th:field="*{car.odometer}">
                         </label>
-                        <label for="statusName">
+                        <label for="bilStatus">
                             Status:
-                            <select name="statusName" id="statusName">
+                            <select name="bilStatus" id="bilStatus">
                                 <option value="Tilgængelig">Tilgængelig</option>
-                                <option value="Utilgængelig">Utilgængelig</option>
-                                <option value="Udlejet">Udlejet</option>
                             </select>
-                        </label>
-                        <label>
-                            Leasing price:
-                            <input type="number" th:value="${leasingPrice.leasingPrice}">
                         </label>
                         <label>
                             Image url:
