@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>opdatere skader</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{'/rapporter/updateSkade'}" method="post">
+        <label>
+            Skade beskrivelse:
+            <input type="text" th:field="*{skade.skadebeskrivelse}" />
+        </label>
+        <label>
+            Kategori:
+            <input type="text" th:field="*{skade.kategori}" />
+        </label>
+        <label>
+            Pris:
+            <input type="text" th:field="*{skade.pris}" />
+        </label>
+        <label>
+            ID:
+            <input type="hidden" th:field="*{skade.skadeID}" />
+            <span th:text="*{skade.skadeID}"></span>
+        </label>
+        <label>
+            ID:
+            <input type="hidden" th:field="*{skade.rapportID}" />
+            <span th:text="${skade.rapportID}"></span>
+        </label>
+        <button type="submit">Opdater</button>
+    </form>
+</div>
+</body>
+</html>

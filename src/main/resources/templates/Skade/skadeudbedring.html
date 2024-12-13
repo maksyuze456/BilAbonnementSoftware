@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/forsi.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="stylesheet" th:href="@{/Skade/skadeAlleRapporter.css}">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
+    <title>Title</title>
+</head>
+<body>
+<div class="page">
+    <div class="nav">
+        <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
+        <h2>**</h2>
+        <div class="section">
+            <a href="/">
+                <img src="/images/database.png">
+                <h3>Dataregistrering</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/">
+                <img src="/images/tools.png">
+                <h3>Skade&Udbedring</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/forretningsudvikler">
+                <img src="/images/briefcase.png">
+                <h3>Forretningsudvikler</h3>
+            </a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h2>Skade&Udbedring</h2>
+        <div class="main-buttons">
+            <a href="">
+                <button id="active">Alle rapporter</button>
+            </a>
+
+            <a href="create">
+                <button>Opret Rapport</button>
+            </a>
+        </div>
+        <div class="dynamic-content">
+            <div class="left">
+                <h3>Oversigt:</h3>
+                <ul>
+                    <li>test</li>
+                    <li>test</li>
+
+                </ul>
+            </div>
+            <div class="right">
+                <div class="container">
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>RapportID</td>
+                            <td>Oprettet dato</td>
+                            <td>Stelnummer</td>
+                            <td>Beskrivelse</td>
+                            <td>Action</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="rapport: ${rapporter}">
+                            <td th:text="${rapport.rapportID}">
+                            <td th:text="${rapport.oprettetDato}">
+                            <td th:text="${rapport.stelnummer}">
+                            <td th:text="${rapport.beskrivelse}">
+                            <td id="table-buttons">
+                                <a th:href="@{'/rapporter/' + ${rapport.rapportID}}">
+                                    <img th:src="@{/images/view.png}" alt="edit">
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

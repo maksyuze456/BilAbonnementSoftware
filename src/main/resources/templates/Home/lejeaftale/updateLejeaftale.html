@@ -3,8 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/dataForsiden.css}">
+
     <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="stylesheet" th:href="@{/forsi.css}">
+    <link rel="stylesheet" th:href="@{/opretForm.css}">
+    <link rel="stylesheet" th:href="@{/Forretningsudvikler/redigerBil.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
@@ -19,8 +22,8 @@
 
 
         <div style="display: flex; align-items: center;">
-            <h2>Dataregistrering</h2>
-            <img src="/images/database.png" style="margin-left: 10px; width: 50px; height: 50px;">
+            <h3>**</h3>
+
         </div>
         <div class="section">
             <a href="/lejeaftale/dataregForsiden">
@@ -45,7 +48,11 @@
         <h1>Dataregistrering</h1>
         <h2>Update lejeaftale</h2>
         <form th:action="@{/lejeaftale/update}" th:object="${lejeaftale}" method="post">
+            <label>
+                Lejeaftale ID:
             <input type="hidden" th:field="*{lejeaftale_id}"/>
+                <span th:text="${lejeaftale_id}"></span>
+            </label>
             <label>Kunde Nr</label>
             <input type="text" th:field="*{kunde_nr}"readonly/>
 
@@ -61,10 +68,15 @@
             <label>Pris</label>
             <input type="text" th:field="*{pris}"/>
 
-            <label>Afhentningsted</label>
-            <input type="text" th:field="*{afhentningsted}"/>
+            <label for="afhentningsted">
+                Afhentningsted:
+                <select name="afhentningsted" id="afhentningsted">
+                    <option value="DS">DS</option>
+                    <option value="BIL">BIL</option>
+                </select>
+            </label>
 
-            <button type="submit">Opdater</button>
+            <button type="submit">GEM</button>
 
         </form>
 
