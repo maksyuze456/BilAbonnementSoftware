@@ -15,6 +15,8 @@ import java.util.List;
 public class LejeaftaleRepository {
     @Autowired
     JdbcTemplate template;
+    @Autowired
+    BilRepository bilRepository;
     public List<Lejeaftale> fetchAllLejeaftale () {
         String sql = "SELECT * FROM lejeaftale";
         RowMapper<Lejeaftale> rowMapper = new BeanPropertyRowMapper<>(Lejeaftale.class);
@@ -23,7 +25,10 @@ public class LejeaftaleRepository {
     public void addLejeaftale(Lejeaftale l){
         String sql ="INSERT INTO lejeaftale(lejeaftale_id, kunde_nr,stelnummer,start_dato,slut_dato,pris,afhentningsted) VALUES(?,?,?,?,?,?,?) ";
         template.update(sql,l.getLejeaftale_id(),l.getKunde_nr(),l.getStelnummer(),l.getStart_dato(),l.getSlut_dato(),l.getPris(),l.getAfhentningsted());
+        bilRepository.updateBilPris(l.getStelnummer(), l.getPris());
+
     }
+
     public Lejeaftale findLejeaftaleById(int lejeaftale_id) {
         String sql = "SELECT * FROM lejeaftale WHERE lejeaftale_id = ?";
         RowMapper<Lejeaftale> rowMapper = new BeanPropertyRowMapper<>(Lejeaftale.class);
@@ -43,5 +48,7 @@ public class LejeaftaleRepository {
     public void updateLejeaftale(Lejeaftale l){
         String sql = "UPDATE lejeaftale SET start_dato=?,slut_dato=?,pris=?,afhentningsted=? WHERE lejeaftale_id=? " ;
         template.update(sql,l.getStart_dato(),l.getSlut_dato(),l.getPris(),l.getAfhentningsted(),l.getLejeaftale_id());
+        bilRepository.updateBilPris(l.getStelnummer(), l.getPris());
+
     }
 }

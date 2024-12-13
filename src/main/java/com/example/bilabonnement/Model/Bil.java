@@ -19,14 +19,9 @@ public class Bil {
 
     private int odometer;
     private String bilStatus;
+    private Double pris;
 
-
-
-
-    public Bil(){
-
-    }
-
+    public Bil(){}
 
     public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer, String bilStatus) {
     this.stelnummer = stelnummer;
@@ -36,8 +31,6 @@ public class Bil {
     this.odometer = odometer;
     this.bilStatus = bilStatus;
 }
-
-
 
     public String getStelnummer() {
         return stelnummer;
@@ -87,5 +80,11 @@ public class Bil {
         this.bilStatus = bilStatus;
     }
 
+    public Double getPris() {
+        return pris;
+    }
 
+    public void setPris(Double pris) {
+        this.pris = pris;
+    }
 }

@@ -45,6 +45,10 @@ public class BilRepository {
             String sql = "UPDATE bil SET mærke=?,model=?,brandstof=?,odometer=?, bilStatus=? WHERE stelnummer=? ";
             template.update(sql, b.getMærke(), b.getModel(), b.getBrandstof(), b.getOdometer(), b.getBilStatus(), b.getStelnummer());
         }
+    public void updateBilPris(String stelnummer, Double pris) {
+        String sql = "UPDATE bil SET pris = ? WHERE stelnummer = ?";
+        template.update(sql, pris, stelnummer);
+    }
 
 
     }
