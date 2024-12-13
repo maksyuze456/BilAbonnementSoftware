@@ -54,6 +54,9 @@
             <th>Slut Dato</th>
             <th>Pris</th>
             <th>Afhentningsted</th>
+            <td>Action</td>
+
+
 
           </tr>
         </thead>
@@ -67,15 +70,13 @@
             <td th:text="${lejeaftale.pris}"></td>
             <td th:text="${lejeaftale.afhentningsted}"></td>
 
+            <td id="table-buttons">
+              <a th:href="@{'view/' + ${lejeaftale.lejeaftale_id}}">
+                <img th:src="@{/images/view.png}" alt="edit">
+              </a>
+            <td/>
 
-            <td>
-              <a th:href="@{'/lejeaftale/delete/' + ${lejeaftale.lejeaftale_id}}">
-                <button class="btn-deletelejeaftale" id="btn-deletelejeaftale">Slet</button>
-              </a>
-              <a th:href="@{'/lejeaftale/update/' + ${lejeaftale.lejeaftale_id}}">
-                <button class="btn-updatelejeaftale" id="btn-updatelejeaftale">Update</button>
-              </a>
-            </td>
+
           </tr>
         </tbody>
       </table>

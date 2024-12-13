@@ -1,5 +1,6 @@
 package com.example.bilabonnement.Repository;
 
+import com.example.bilabonnement.Model.Bil;
 import com.example.bilabonnement.Model.Lejeaftale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,9 @@ public class LejeaftaleRepository {
             return null;
         }
     }
+
+
+
 
     public Boolean deleteLejeaftale(int lejeaftale_id){
         String sql = "DELETE FROM lejeaftale WHERE  lejeaftale_id =?";

@@ -65,5 +65,12 @@ public class LejeaftaleController {
 
 
     }
+    @GetMapping("/view/{lejeaftale_id}")
+    public String viewLejeaftale(@PathVariable("lejeaftale_id") int lejeaftale_id, Model model) {
+
+        model.addAttribute("lejeaftale", lejeaftaleService.findLejeaftaleById(lejeaftale_id));
+
+        return "home/lejeaftale/viewLejeaftale";
+    }
 
 }

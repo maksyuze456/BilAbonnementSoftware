@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/forsi.css}">
+    <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsUdlejede.css}">
+    <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsViewBil.css}">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
+    <title>Title</title>
+</head>
+<body>
+<div class="page">
+    <div class="nav">
+        <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
+        <h2>**</h2>
+        <div class="section">
+            <a href="/lejeaftale/dataregForsiden">
+                <img src="/images/database.png">
+                <h3>Dataregistrering</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/">
+                <img src="/images/tools.png">
+                <h3>Skade&Udbedring</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/forretningsudvikler/udlejet">
+                <img src="/images/briefcase.png">
+                <h3>Forretningsudvikler</h3>
+            </a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h2>Dataregistrering</h2>
+        <div class="main-buttons">
+            <a href="/forretningsudvikler/udlejet">
+                <button>Alle udlejede</button>
+            </a>
+            <a href="/forretningsudvikler/tilgængelig">
+                <button>Alle tilgængelige</button>
+            </a>
+            <a href="/forretningsudvikler/opret_bil">
+                <button id="">Opret bil</button>
+            </a>
+            <a href="">
+                <button>Biler</button>
+            </a>
+            <a href="">
+                <button>Rapporter</button>
+            </a>
+        </div>
+        <div class="dynamic-content">
+            <div class="left">
+
+            </div>
+            <div class="right">
+                <div class="container">
+                    <h3 th:text="'Lejeaftale ID: ' + ${lejeaftale.lejeaftale_id}"></h3>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>Stelnummer</td>
+                            <td th:text="${lejeaftale.stelnummer}"></td>
+                        </tr>
+                        <tr>
+                            <td>Kunde Nr</td>
+                            <td th:text="${lejeaftale.kunde_nr}"></td>
+                        </tr>
+                        <tr>
+                            <td>Start Dato</td>
+                            <td th:text="${lejeaftale.start_dato}"></td>
+                        </tr>
+                        <tr>
+                            <td>Slut Dato</td>
+                            <td th:text="${lejeaftale.slut_dato}"></td>
+                        </tr>
+                        <tr>
+                            <td>Pris</td>
+                            <td th:text="${lejeaftale.pris}"></td>
+                        </tr>
+                        <tr>
+                            <td>Afhentningsted</td>
+                            <td th:text="${lejeaftale.afhentningsted}"></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-buttons">
+                        <a th:href="@{'/lejeaftale/update/' + ${lejeaftale.lejeaftale_id}}">
+                            <button>Rediger</button>
+                        </a>
+                    </div>
+                    <div class="table-buttons">
+                        <a th:href="@{'/lejeaftale/delete/' + ${lejeaftale.lejeaftale_id}}">
+                            <button>Slet</button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
