@@ -19,6 +19,8 @@ public class Bil {
 
     private int odometer;
     private String bilStatus;
+    private Double pris;
+
     public Bil(){}
 
     public Bil(String stelnummer, String mærke, String model, String brandstof, int odometer, String bilStatus) {
@@ -78,5 +80,11 @@ public class Bil {
         this.bilStatus = bilStatus;
     }
 
+    public Double getPris() {
+        return pris;
+    }
 
+    public void setPris(Double pris) {
+        this.pris = pris;
+    }
 }
