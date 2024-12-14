@@ -60,7 +60,8 @@
             </label>
             <label>
               Stelnummer:
-              <input type="text" th:field="${lejeaftale.stelnummer}">
+              <input type="hidden" th:field="*{lejeaftale.stelnummer}">
+              <span th:text="${lejeaftale.stelnummer}"></span>
             </label>
             <label>
               Start Dato:

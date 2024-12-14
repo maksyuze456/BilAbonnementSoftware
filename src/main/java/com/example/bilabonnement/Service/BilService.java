@@ -17,6 +17,9 @@ public class BilService {
     public void addBil(Bil b){
         bilRepository.addBil(b);
     }
+    public List<Bil> fetchAllCarsByStatus(String bilStatus) {
+        return bilRepository.fetchAllCarsByStatus(bilStatus);
+    }
     public Bil findBilByStelNummer(String stelnummer){
         return bilRepository.findBilByStelNummer(stelnummer);
     }

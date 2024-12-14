@@ -34,6 +34,12 @@ public class BilRepository {
 
 
     }
+    public List<Bil> fetchAllCarsByStatus(String carStatus) {
+        String sql = "SELECT * from bil where bilStatus = ?";
+        RowMapper<Bil> rowMapper = new BeanPropertyRowMapper<>(Bil.class);
+        return template.query(sql, rowMapper, carStatus);
+
+    }
 
 
         public Boolean deleteBil (String stelnummer){
@@ -45,9 +51,9 @@ public class BilRepository {
             String sql = "UPDATE bil SET mærke=?,model=?,brandstof=?,odometer=?, bilStatus=? WHERE stelnummer=? ";
             template.update(sql, b.getMærke(), b.getModel(), b.getBrandstof(), b.getOdometer(), b.getBilStatus(), b.getStelnummer());
         }
-    public void updateBilPris(String stelnummer, Double pris) {
-        String sql = "UPDATE bil SET pris = ? WHERE stelnummer = ?";
-        template.update(sql, pris, stelnummer);
+    public void setBilUdlejet(String stelnummer, Double pris) {
+        String sql = "UPDATE bil SET pris = ?, bilStatus = ? WHERE stelnummer = ?";
+        template.update(sql, pris, "Udlejet", stelnummer);
     }
 
 

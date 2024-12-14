@@ -1,8 +1,10 @@
 package com.example.bilabonnement.Controller;
+import com.example.bilabonnement.Model.Bil;
 import com.example.bilabonnement.Model.Lejeaftale;
 import com.example.bilabonnement.Service.BilService;
 import com.example.bilabonnement.Service.LejeaftaleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.util.JpaMetamodel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +28,17 @@ public class LejeaftaleController {
     }
 
 
-    @GetMapping("/create")
-    public String createLejeaftaleForm(Model model) {
-        model.addAttribute("lejeaftale", new Lejeaftale());
+    @GetMapping("/create/{stelnummer}")
+    public String createLejeaftaleForm(Model model, @PathVariable("stelnummer") String stelnummer) {
+        Lejeaftale lejeaftale = new Lejeaftale();
+        lejeaftale.setStelnummer(stelnummer);
+        model.addAttribute("lejeaftale", lejeaftale);
         return "home/lejeaftale/createlejeaftale";
+    }
+    @GetMapping("/create/chooseCar/{bilStatus}")
+    public String chooseCar(Model model, @PathVariable("bilStatus")String bilStatus){
+        model.addAttribute("carList", bilService.fetchAllCarsByStatus(bilStatus));
+        return "home/lejeaftale/chooseCar";
     }
 
 

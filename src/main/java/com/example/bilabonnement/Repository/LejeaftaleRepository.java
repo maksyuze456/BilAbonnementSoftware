@@ -24,9 +24,9 @@ public class LejeaftaleRepository {
         return template.query(sql, rowMapper);
     }
     public void addLejeaftale(Lejeaftale l){
-        String sql ="INSERT INTO lejeaftale(lejeaftale_id, kunde_nr,stelnummer,start_dato,slut_dato,pris,afhentningsted) VALUES(?,?,?,?,?,?,?) ";
-        template.update(sql,l.getLejeaftale_id(),l.getKunde_nr(),l.getStelnummer(),l.getStart_dato(),l.getSlut_dato(),l.getPris(),l.getAfhentningsted());
-        bilRepository.updateBilPris(l.getStelnummer(), l.getPris());
+        String sql ="INSERT INTO lejeaftale(kunde_nr,stelnummer,start_dato,slut_dato,pris,afhentningsted) VALUES(?,?,?,?,?,?) ";
+        template.update(sql,l.getKunde_nr(),l.getStelnummer(),l.getStart_dato(),l.getSlut_dato(),l.getPris(),l.getAfhentningsted());
+        bilRepository.setBilUdlejet(l.getStelnummer(), l.getPris());
 
     }
 
@@ -52,7 +52,7 @@ public class LejeaftaleRepository {
     public void updateLejeaftale(Lejeaftale l){
         String sql = "UPDATE lejeaftale SET start_dato=?,slut_dato=?,pris=?,afhentningsted=? WHERE lejeaftale_id=? " ;
         template.update(sql,l.getStart_dato(),l.getSlut_dato(),l.getPris(),l.getAfhentningsted(),l.getLejeaftale_id());
-        bilRepository.updateBilPris(l.getStelnummer(), l.getPris());
+        bilRepository.setBilUdlejet(l.getStelnummer(), l.getPris());
 
     }
 }
