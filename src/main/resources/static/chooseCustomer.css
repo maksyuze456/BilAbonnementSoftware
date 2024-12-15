@@ -1,0 +1,39 @@
+#active {
+    border-color: #549cc4;
+}
+ul {
+    list-style-type: none;
+}
+.container thead td:last-child {
+    display: flex;
+    justify-content: center;
+}
+#table-buttons {
+    display: flex;
+    justify-items: center;
+}
+
+.main-buttons button:hover,
+.main-buttons button:active,
+.main-buttons button:focus{
+    border-color: #549cc4;
+    cursor: pointer;
+
+}
+.dynamic-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.container h2{
+    text-align: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+table {
+    width: fit-content;
+}
+

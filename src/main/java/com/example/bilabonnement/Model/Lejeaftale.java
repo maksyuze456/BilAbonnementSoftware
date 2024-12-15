@@ -21,10 +21,11 @@ public class Lejeaftale {
     private Date slut_dato;
     private Double pris;
     private String afhentningsted;
+    private String lejeaftaleStatus;
     public Lejeaftale(){
 
     }
-    public Lejeaftale(int lejeaftale_id, int kunde_nr, String stelnummer, Date start_dato, Date slut_dato, Double pris,String afhentningsted) {
+    public Lejeaftale(int lejeaftale_id, int kunde_nr, String stelnummer, Date start_dato, Date slut_dato, Double pris,String afhentningsted, String lejeaftaleStatus) {
         this.lejeaftale_id = lejeaftale_id;
         this.kunde_nr = kunde_nr;
         this.stelnummer = stelnummer;
@@ -32,6 +33,7 @@ public class Lejeaftale {
         this.slut_dato = slut_dato;
         this.pris = pris;
         this.afhentningsted=afhentningsted;
+        this.lejeaftaleStatus = lejeaftaleStatus;
     }
 
     public int getLejeaftale_id() {
@@ -88,5 +90,13 @@ public class Lejeaftale {
 
     public void setAfhentningsted(String afhentningsted) {
         this.afhentningsted = afhentningsted;
+    }
+
+    public String getLejeaftaleStatus() {
+        return lejeaftaleStatus;
+    }
+
+    public void setLejeaftaleStatus(String lejeaftaleStatus) {
+        this.lejeaftaleStatus = lejeaftaleStatus;
     }
 }

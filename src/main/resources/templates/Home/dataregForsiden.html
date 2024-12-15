@@ -39,25 +39,29 @@
   </div>
   <div class="main-content">
     <h2>Dataregistrering</h2>
-
-    <a th:href="@{'create/chooseCar/' + 'tilgængelig'}">
-      <button class="btn-createlejeaftale btn" id="btn-createlejeaftale">Opret en ny lejeaftale</button>
-    </a>
+    <div class="main-buttons">
+      <a href="/lejeaftale/aktiv">
+        <button>Aktive lejeaftaler</button>
+      </a>
+      <a href="/lejeaftale/inaktiv">
+        <button>Inaktive lejeaftaler</button>
+      </a>
+      <a href="/lejeaftale/create/chooseCustomer">
+        <button>Opret lejeaftale</button>
+      </a>
+    </div>
     <div class="dynamic-content">
       <table>
         <thead>
           <tr>
-            <th>Lejeaftale ID</th>
-            <th>Kunde Nr</th>
+            <th>ID</th>
+            <th>Kunde#</th>
             <th>Stelnummer</th>
             <th>Start Dato</th>
             <th>Slut Dato</th>
             <th>Pris</th>
             <th>Afhentningsted</th>
             <td>Action</td>
-
-
-
           </tr>
         </thead>
         <tbody>

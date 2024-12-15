@@ -36,17 +36,14 @@
   <div class="main-content">
     <h2>Dataregistrering</h2>
     <div class="main-buttons">
-      <a href="">
-        <button>Alle udlejede</button>
+      <a href="/lejeaftale/aktiv">
+        <button>Aktive lejeaftaler</button>
       </a>
-      <a href="">
-        <button>Registrering</button>
+      <a href="/lejeaftale/inaktiv">
+        <button>Inaktive lejeaftaler</button>
       </a>
-      <a href="">
-        <button id="active">Biler</button>
-      </a>
-      <a href="">
-        <button>Rapporter</button>
+      <a href="/lejeaftale/create/chooseCustomer">
+        <button>Opret lejeaftale</button>
       </a>
     </div>
     <div class="create-container">
@@ -55,8 +52,9 @@
         <div class="form">
           <form th:action="@{/lejeaftale/create}" method="post">
             <label>
-              Kunde Nr:
-              <input type="text" th:field="${lejeaftale.kunde_nr}">
+              Kunde nr:
+              <input type="hidden" th:field="*{lejeaftale.kunde_nr}">
+              <span th:text="${lejeaftale.kunde_nr}"></span>
             </label>
             <label>
               Stelnummer:
@@ -82,15 +80,12 @@
                 <option value="BIL">BIL</option>
               </select>
             </label>
-
-
             <button type="submit">Create</button>
           </form>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 </body>
 </html>
