@@ -55,7 +55,7 @@ public class BilRepository {
 
 
     public void opdaterStatus(String stelnummer, String nyStatus) {
-        String sql = "UPDATE Bil SET status = ? WHERE stelnummer = ?";
+        String sql = "UPDATE Bil SET bilStatus = ? WHERE stelnummer = ?";
         template.update(sql, nyStatus, stelnummer);
     }
 }

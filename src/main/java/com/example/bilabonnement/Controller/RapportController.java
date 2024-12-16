@@ -128,14 +128,14 @@ public class RapportController {
    /* @PostMapping("/createAndUpdateStatus")
     public String createAndUpdateStatus(
             @ModelAttribute Rapport rapport,
-            @RequestParam("lejeaftale_Id") int lejeaftale_Id,
+            @RequestParam("lejeaftaleId") int lejeaftale_Id,
             @RequestParam("bilStatus") String bilStatus) {
 
         // Opret rapport
         rapportService.addRapport(rapport);
 
         // Afslut lejeaftale
-        lejeaftaleService.afslutLejeaftale(lejeaftale_Id, "afsluttet");
+        lejeaftaleService.afslutLejeaftale(lejeaftale_Id, "Afsluttet");
 
         // Opdater bilens status
         bilService.opdaterBilStatus(rapport.getStelnummer(), bilStatus);

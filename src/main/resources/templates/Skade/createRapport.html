@@ -57,7 +57,7 @@
             <div class="create-form">
                 <h3>Opret Skade Rapport'</h3>
                 <div class="form">
-                    <form th:action="@{/rapporter/create}" method="post">
+                    <form th:action="@{/rapporter/createAndUpdateStatus}" method="post">
                         <label>
                             Stelnummer:
                             <input type="text" th:field="${rapport.stelnummer}">
@@ -79,8 +79,8 @@
                         <label>
                             Opdater Bil Status:
                             <select name="bilStatus">
-                                <option value="tilgængelig">Uilgængelig</option>
-                                <option value="indleveret">Tilgængelig</option>
+                                <option value="tilgængelig">Tilgængelig</option>
+                                <option value="indleveret">Tilbageleveret</option>
                             </select>
                         </label>
                         <br>
