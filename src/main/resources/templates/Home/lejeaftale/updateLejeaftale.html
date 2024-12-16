@@ -1,29 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/dataForsiden.css}">
+    <link rel="stylesheet" th:href="@{/forsi.css}">
     <link rel="stylesheet" th:href="@{/table.css}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
-
-
-    <title>Dataregistrering</title>
+    <link rel="stylesheet" th:href="@{/opretForm.css}">
+    <link rel="stylesheet" th:href="@{/Forretningsudvikler/redigerBil.css}">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
+    <title>Title</title>
 </head>
 <body>
 <div class="page">
     <div class="nav">
         <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
-
-
-        <div style="display: flex; align-items: center;">
-            <h2>Dataregistrering</h2>
-            <img src="/images/database.png" style="margin-left: 10px; width: 50px; height: 50px;">
-        </div>
+        <h2>**</h2>
         <div class="section">
-            <a href="/lejeaftale/dataregForsiden">
+            <a href="/">
                 <img src="/images/database.png">
                 <h3>Dataregistrering</h3>
             </a>
@@ -42,40 +36,63 @@
         </div>
     </div>
     <div class="main-content">
-        <h1>Dataregistrering</h1>
-        <h2>Update lejeaftale</h2>
-        <form th:action="@{/lejeaftale/update}" th:object="${lejeaftale}" method="post">
-            <input type="hidden" th:field="*{lejeaftale_id}"/>
-            <label>Kunde Nr</label>
-            <input type="text" th:field="*{kunde_nr}"readonly/>
+        <h2>Dataregistrering</h2>
+        <div class="main-buttons">
+            <a href="/lejeaftale/aktiv">
+                <button>Aktive lejeaftaler</button>
+            </a>
+            <a href="/lejeaftale/inaktiv">
+                <button>Inaktive lejeaftaler</button>
+            </a>
+            <a href="/lejeaftale/create/chooseCustomer">
+                <button>Opret lejeaftale</button>
+            </a>
+        </div>
+        <div class="dynamic-content">
+            <div class="container">
+                <h3 th:text="${'Lejeaftale ID: ' + lejeaftale.lejeaftale_id}"></h3>
+                <form th:action="@{'/lejeaftale/update'}"  method="post">
+                    <label>
+                         Lejeaftale ID:
+                        <input type="hidden" th:field="*{lejeaftale.lejeaftale_id}">
+                        <span th:text="${lejeaftale.lejeaftale_id}"></span>
+                    </label>
+                    <label>
+                        Stelnummer:
+                    <input type="text" th:field="*{lejeaftale.stelnummer}"readonly/>
+                    </label>
+                    <label>
+                        Kunde Nr:
+                    <input type="text" th:field="*{lejeaftale.kunde_nr}"readonly/>
+                    </label>
+                    <label>
+                        Start Dato:
+                        <input type="date" th:field="*{lejeaftale.start_dato}">
+                    </label>
+                    <label>
+                        Slut Dato:
+                        <input type="date" th:field="*{lejeaftale.slut_dato}">
+                    </label>
+                    <label>
+                        Pris:
+                    <input type="text" th:field="*{lejeaftale.pris}"/>
+                    </label>
+                    <label for="afhentningsted">
+                        Afhentningsted:
+                        <select name="afhentningsted" id="afhentningsted">
+                            <option value="DS">DS</option>
+                            <option value="BIL">BIL</option>
+                        </select>
+                    </label>
 
-            <label>Stelnummer</label>
-            <input type="text" th:field="*{stelnummer}"readonly/>
-
-            <label>Start Dato</label>
-            <input type="date" th:field="*{start_dato}"/>
-
-            <label>Slut Dato</label>
-            <input type="date" th:field="*{slut_dato}"/>
-
-            <label>Pris</label>
-            <input type="text" th:field="*{pris}"/>
-
-            <label>Afhentningsted</label>
-            <input type="text" th:field="*{afhentningsted}"/>
-
-            <button type="submit">Opdater</button>
-
-        </form>
-
-
-
-
+                    <div class="table-buttons">
+                        <button>Gem</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
 </body>
 </html>
-
-
-
-

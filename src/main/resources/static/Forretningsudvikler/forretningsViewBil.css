@@ -1,0 +1,60 @@
+tbody tr {
+    background-color: #FFFFFF;
+
+}
+.inner-table tbody tr:nth-child(even){
+    background-color: #eaeaea;
+}
+.inner-table thead td{
+    font-weight: 600;
+}
+.right td {
+    border-bottom: 2px solid #EAEAEA;
+}
+table {
+    border: 3px solid #FFFFFF;
+}
+.left img {
+    width: 100%;
+}
+.left {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+
+}
+.main-content {
+    height: 87vh;
+}
+.dynamic-content {
+    gap: 10%;
+}
+.right h3{
+    margin: 0;
+    padding-left: 19px;
+}
+
+.table-buttons button {
+    border-style: none;
+    border-bottom: 2px solid white;
+    color: white;
+    background-color: #549cc4;
+    font-family: "Be Vietnam Pro";
+    padding: 10px 30px;
+    transition: 0.5s;
+
+}
+.table-buttons button:hover{
+    color: #f2f2f2;
+    border-color: #437ea1;
+    cursor: pointer;
+}
+.table-buttons {
+    margin-top: 19px;
+    margin-left: 19px;
+}
+.total-price {
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+}

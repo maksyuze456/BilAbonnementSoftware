@@ -4,7 +4,7 @@
 ul {
     list-style-type: none;
 }
-.right thead td:last-child {
+.container thead td:last-child {
     display: flex;
     justify-content: center;
 }
@@ -12,9 +12,7 @@ ul {
     display: flex;
     justify-items: center;
 }
-.right {
-    width: 100%;
-}
+
 .main-buttons button:hover,
 .main-buttons button:active,
 .main-buttons button:focus{
@@ -22,3 +20,20 @@ ul {
     cursor: pointer;
 
 }
+.dynamic-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.container h2{
+    text-align: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+table {
+    width: fit-content;
+}
+

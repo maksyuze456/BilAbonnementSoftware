@@ -1,78 +1,52 @@
 package com.example.bilabonnement.Service;
 
+import com.example.bilabonnement.Model.Bil;
+import com.example.bilabonnement.Model.Kunde;
 import com.example.bilabonnement.Model.Lejeaftale;
-import com.example.bilabonnement.Repository.BilRepository;
 import com.example.bilabonnement.Repository.LejeaftaleRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import static com.example.bilabonnement.Repository.LejeaftaleRepository.*;
 
 @Service
 public class LejeaftaleService {
 
     @Autowired
     LejeaftaleRepository lejeaftaleRepository;
-@Autowired
-   private BilService bilService;
 
-    public LejeaftaleService(LejeaftaleRepository lejeaftaleRepository) {
-        this.lejeaftaleRepository = lejeaftaleRepository;
-    }
-
+    // Henter alle lejeaftaler fra repository
     public List<Lejeaftale> fetchAllLejeaftale() {
         return lejeaftaleRepository.fetchAllLejeaftale();
     }
 
+    // Henter alle kunder fra repository
+    public List<Kunde> fetchAllKunder() {
+        return lejeaftaleRepository.fetchAllKunder();
+    }
+
+    // Henter biler fra repository baseret på bilens status
+    public List<Bil> fetchAllCarsByStatus(String bilStatus) {
+        return lejeaftaleRepository.fetchAllCarsByStatus(bilStatus);
+    }
+
+    // Henter alle lejeaftaler efter deres status fra repository
+    public List<Lejeaftale> fetchAllLejeaftalerByStatus(String lejeaftaleStatus) {
+        return lejeaftaleRepository.fetchAllLejeaftalerByStatus(lejeaftaleStatus);
+    }
+
+    // Tilføjer en ny lejeaftale ved at kalde på repository
     public void addLejeaftale(Lejeaftale l) {
         lejeaftaleRepository.addLejeaftale(l);
     }
 
+    // Finder en specifik lejeaftale baseret på ID ved at kalde repository
     public Lejeaftale findLejeaftaleById(int lejeaftale_id) {
         return lejeaftaleRepository.findLejeaftaleById(lejeaftale_id);
     }
 
-    public Boolean deleteLejeaftale(int lejeaftale_id) {
-        return lejeaftaleRepository.deleteLejeaftale(lejeaftale_id);
-    }
-
+    // Opdaterer en eksisterende lejeaftale ved at kalde repository
     public void updateLejeaftale(Lejeaftale l) {
         lejeaftaleRepository.updateLejeaftale(l);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @Transactional
-    public void afslutLejeaftale(int lejeaftale_id, String lejeaftaleStatus) {
-        lejeaftaleRepository.opdaterLejeaftaleStatus(lejeaftale_id, lejeaftaleStatus);
-        String stelnummer = findStelnummerByLejeaftaleId(lejeaftale_id);
-
-        if (stelnummer != null) {
-
-            bilService.opdaterBilStatus(stelnummer, "utilgængelig");
-        } else {
-            System.out.println("Ingen bil fundet for lejeaftale ID: " + lejeaftale_id);
-        }
-    }
-    public String findStelnummerByLejeaftaleId(int lejeaftale_id) {
-
-        return lejeaftaleRepository.findStelnummerByLejeaftaleId(lejeaftale_id);
-    }
-
-    }
+}

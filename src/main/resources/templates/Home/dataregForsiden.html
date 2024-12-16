@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" th:href="@{/dataForsiden.css}">
+  <link rel="stylesheet" th:href="@{/forsi.css}">
   <link rel="stylesheet" th:href="@{/table.css}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +15,9 @@
   <div class="nav">
     <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
 
-    <div style="display: flex; align-items: center;">
-      <h2>Dataregistrering</h2>
-      <img src="/images/database.png" style="margin-left: 10px; width: 50px; height: 50px;">
-    </div>
+      <h2>**</h2>
+
+
     <div class="section">
       <a href="/lejeaftale/dataregForsiden">
         <img src="/images/database.png">
@@ -39,23 +38,30 @@
     </div>
   </div>
   <div class="main-content">
-    <h1>Dataregistrering</h1>
-
-    <a th:href="@{/lejeaftale/create}">
-      <button class="btn-createlejeaftale btn" id="btn-createlejeaftale">Opret en ny lejeaftale</button>
-    </a>
+    <h2>Dataregistrering</h2>
+    <div class="main-buttons">
+      <a href="/lejeaftale/aktiv">
+        <button>Aktive lejeaftaler</button>
+      </a>
+      <a href="/lejeaftale/inaktiv">
+        <button>Inaktive lejeaftaler</button>
+      </a>
+      <a href="/lejeaftale/create/chooseCustomer">
+        <button>Opret lejeaftale</button>
+      </a>
+    </div>
     <div class="dynamic-content">
       <table>
         <thead>
           <tr>
-            <th>Lejeaftale ID</th>
-            <th>Kunde Nr</th>
+            <th>ID</th>
+            <th>Kunde#</th>
             <th>Stelnummer</th>
             <th>Start Dato</th>
             <th>Slut Dato</th>
             <th>Pris</th>
             <th>Afhentningsted</th>
-
+            <td>Action</td>
           </tr>
         </thead>
         <tbody>
@@ -68,15 +74,13 @@
             <td th:text="${lejeaftale.pris}"></td>
             <td th:text="${lejeaftale.afhentningsted}"></td>
 
+            <td id="table-buttons">
+              <a th:href="@{'view/' + ${lejeaftale.lejeaftale_id}}">
+                <img th:src="@{/images/view.png}" alt="edit">
+              </a>
+            <td/>
 
-            <td>
-              <a th:href="@{'/lejeaftale/delete/' + ${lejeaftale.lejeaftale_id}}">
-                <button class="btn-deletelejeaftale" id="btn-deletelejeaftale">Slet</button>
-              </a>
-              <a th:href="@{'/lejeaftale/update/' + ${lejeaftale.lejeaftale_id}}">
-                <button class="btn-updatelejeaftale" id="btn-updatelejeaftale">Update</button>
-              </a>
-            </td>
+
           </tr>
         </tbody>
       </table>

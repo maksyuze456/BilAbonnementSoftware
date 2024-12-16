@@ -5,6 +5,7 @@
     <link rel="stylesheet" th:href="@{/forsi.css}">
     <link rel="stylesheet" th:href="@{/table.css}">
     <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsUdlejede.css}">
+    <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsViewBil.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
@@ -35,62 +36,65 @@
         </div>
     </div>
     <div class="main-content">
-        <h2>Forretningsudvikler</h2>
+        <h2>Dataregistrering</h2>
         <div class="main-buttons">
-            <a href="/forretningsudvikler/udlejet">
-                <button>Alle udlejede</button>
+            <a href="/lejeaftale/aktiv">
+                <button>Aktive lejeaftaler</button>
             </a>
-            <a href="/forretningsudvikler/tilgængelig">
-                <button>Alle tilgængelige</button>
+            <a href="/lejeaftale/inaktiv">
+                <button>Inaktive lejeaftaler</button>
             </a>
-            <a href="/forretningsudvikler/opret_bil">
-                <button>Opret bil</button>
-            </a>
-            <a href="">
-                <button>Biler</button>
-            </a>
-            <a href="">
-                <button>Rapporter</button>
+            <a href="/lejeaftale/create/chooseCustomer">
+                <button>Opret lejeaftale</button>
             </a>
         </div>
         <div class="dynamic-content">
             <div class="left">
-                <h3>Oversigt:</h3>
-                <ul>
-                    <li th:text="'Indtjening pr/mnd: ' + ${totalIncome} + ',-'">
-                    <li th:text="'Antal udlejede biler: ' + ${totalAmount}">
 
-                </ul>
             </div>
             <div class="right">
                 <div class="container">
-
+                    <h3 th:text="'Lejeaftale ID: ' + ${lejeaftale.lejeaftale_id}"></h3>
                     <table>
-                        <thead>
+                        <tbody>
                         <tr>
                             <td>Stelnummer</td>
-                            <td>Mærke</td>
-                            <td>Model</td>
-                            <td>Status</td>
-                            <td>Pris pr/mnd</td>
-                            <td>Action</td>
+                            <td th:text="${lejeaftale.stelnummer}"></td>
                         </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="bil: ${carsList}">
-                            <td th:text="${bil.stelnummer}">
-                            <td th:text="${bil.mærke}">
-                            <td th:text="${bil.model}">
-                            <td th:text="${bil.bilStatus}">
-                            <td th:text="${bil.pris}+',-'">
-                            <td id="table-buttons">
-                                <a th:href="@{'view/' + ${bil.stelnummer}}">
-                                    <img th:src="@{/images/view.png}" alt="edit">
-                                </a>
-                            </td>
+                        <tr>
+                            <td>Kunde Nr</td>
+                            <td th:text="${lejeaftale.kunde_nr}"></td>
+                        </tr>
+                        <tr>
+                            <td>Start Dato</td>
+                            <td th:text="${lejeaftale.start_dato}"></td>
+                        </tr>
+                        <tr>
+                            <td>Slut Dato</td>
+                            <td th:text="${lejeaftale.slut_dato}"></td>
+                        </tr>
+                        <tr>
+                            <td>Pris</td>
+                            <td th:text="${lejeaftale.pris}"></td>
+                        </tr>
+                        <tr>
+                            <td>Afhentningsted</td>
+                            <td th:text="${lejeaftale.afhentningsted}"></td>
+
                         </tr>
                         </tbody>
                     </table>
+                    <div class="table-buttons">
+                        <a th:href="@{'/lejeaftale/update/' + ${lejeaftale.lejeaftale_id}}">
+                            <button>Rediger</button>
+                        </a>
+                    </div>
+                    <div class="table-buttons">
+                        <a th:href="@{'/lejeaftale/delete/' + ${lejeaftale.lejeaftale_id}}">
+                            <button>Slet</button>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>

@@ -1,0 +1,32 @@
+       <form th:action="@{/lejeaftale/update}" th:object="${lejeaftale}" method="post">
+                        <label>
+                            Lejeaftale ID:
+                            <input type="hidden" th:field="*{lejeaftale_id}"/>
+                            <span th:text="${lejeaftale_id}"></span>
+                        </label>
+                        <label>Kunde Nr</label>
+                        <input type="text" th:field="*{kunde_nr}"readonly/>
+
+                        <label>Stelnummer</label>
+                        <input type="text" th:field="*{stelnummer}"readonly/>
+
+                        <label>Start Dato</label>
+                        <input type="date" th:field="*{start_dato}"/>
+
+                        <label>Slut Dato</label>
+                        <input type="date" th:field="*{slut_dato}"/>
+
+                        <label>Pris</label>
+                        <input type="text" th:field="*{pris}"/>
+
+                        <label for="afhentningsted">
+                            Afhentningsted:
+                            <select name="afhentningsted" id="afhentningsted">
+                                <option value="DS">DS</option>
+                                <option value="BIL">BIL</option>
+                            </select>
+                        </label>
+
+                        <button type="submit">GEM</button>
+
+                    </form>

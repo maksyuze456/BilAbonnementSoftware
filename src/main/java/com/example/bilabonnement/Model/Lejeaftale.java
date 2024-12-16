@@ -19,14 +19,13 @@ public class Lejeaftale {
 
 
     private Date slut_dato;
-    private double pris;
+    private Double pris;
     private String afhentningsted;
-
     private String lejeaftaleStatus;
     public Lejeaftale(){
 
     }
-    public Lejeaftale(int lejeaftale_id, int kunde_nr, String stelnummer, Date start_dato, Date slut_dato, double pris,String afhentningsted, String lejeaftaleStatus) {
+    public Lejeaftale(int lejeaftale_id, int kunde_nr, String stelnummer, Date start_dato, Date slut_dato, Double pris,String afhentningsted, String lejeaftaleStatus) {
         this.lejeaftale_id = lejeaftale_id;
         this.kunde_nr = kunde_nr;
         this.stelnummer = stelnummer;
@@ -77,11 +76,11 @@ public class Lejeaftale {
         this.slut_dato = slut_dato;
     }
 
-    public double getPris() {
+    public Double getPris() {
         return pris;
     }
 
-    public void setPris(double pris) {
+    public void setPris(Double pris) {
         this.pris = pris;
     }
 

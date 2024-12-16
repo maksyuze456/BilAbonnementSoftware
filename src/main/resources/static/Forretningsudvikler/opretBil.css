@@ -1,0 +1,45 @@
+#active {
+    border-color: #549cc4;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.create-form h3 {
+    text-align: center;
+}
+.form {
+    display: flex;
+    justify-content: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: fit-content;
+}
+form label{
+    padding: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
+.form button {
+    border-style: none;
+    border-bottom: 2px solid white;
+    color: white;
+    background-color: #549cc4;
+    font-family: "Be Vietnam Pro";
+    padding: 10px 30px;
+    transition: 0.5s;
+
+}
+.form button:hover{
+    color: #f2f2f2;
+    border-color: #437ea1;
+    cursor: pointer;
+}
