@@ -74,7 +74,6 @@ button.secondary:hover {
     background-color: #c7c7c7;
 }
 
-/* Flex layout for horizontal forms */
 .flex-form {
     display: flex;
     flex-wrap: wrap;
@@ -98,7 +97,6 @@ button.secondary:hover {
     padding: 10px 20px;
 }
 
-/* Specific styling for add/edit forms */
 .add-edit-container {
     margin: 20px auto;
     max-width: 600px;

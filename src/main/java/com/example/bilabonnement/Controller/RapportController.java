@@ -125,7 +125,7 @@ public class RapportController {
     }
 
 
-    @PostMapping("/createAndUpdateStatus")
+   /* @PostMapping("/createAndUpdateStatus")
     public String createAndUpdateStatus(
             @ModelAttribute Rapport rapport,
             @RequestParam("lejeaftale_Id") int lejeaftale_Id,
@@ -141,21 +141,20 @@ public class RapportController {
         bilService.opdaterBilStatus(rapport.getStelnummer(), bilStatus);
 
         return "redirect:/rapporter/";
-    }
+    }*/
 
-   /* @PostMapping("/afslutLejeaftale")
+   @PostMapping("/afslutLejeaftale")
     public String afslutLejeaftale(@RequestParam("lejeaftaleId") int lejeaftaleId) {
-        // 1. Opdater lejeaftalens status til "afsluttet"
+
         lejeaftaleService.afslutLejeaftale(lejeaftaleId, "afsluttet");
 
-        // 2. Hent stelnummeret, som er relateret til lejeaftalen
         String stelnummer = lejeaftaleService.findStelnummerByLejeaftaleId(lejeaftaleId);
 
-        // 3. Opdater bilens status til "utilgængelig"
+
         bilService.opdaterBilStatus(stelnummer, "utilgængelig");
 
-        // Omdiriger til en oversigt eller anden relevant side
+
         return "redirect:/rapporter/";
-    }*/
+    }
 
 }
