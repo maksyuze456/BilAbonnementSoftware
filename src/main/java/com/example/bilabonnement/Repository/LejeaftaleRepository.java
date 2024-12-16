@@ -60,18 +60,13 @@ public class LejeaftaleRepository {
 
 
     public void opdaterLejeaftaleStatus(int lejeaftaleId, String status) {
-        String sql = "UPDATE Lejeaftale SET lejeaftaleStatus = ? WHERE id = ?";
+        String sql = "UPDATE Lejeaftale SET lejeaftaleStatus = ? WHERE lejeaftale_id = ?";
         template.update(sql, status, lejeaftaleId);
     }
 
     public String findStelnummerByLejeaftaleId(int lejeaftaleId) {
-        String sql = "SELECT stelnummer FROM Lejeaftale WHERE id = ?";
+        String sql = "SELECT stelnummer FROM Lejeaftale WHERE lejeaftale_id = ?";
         return template.queryForObject(sql, new Object[]{lejeaftaleId}, String.class);
     }
-
-
-
-
-
 
 }

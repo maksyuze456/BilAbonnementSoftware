@@ -3,6 +3,7 @@ package com.example.bilabonnement.Service;
 import com.example.bilabonnement.Model.Lejeaftale;
 import com.example.bilabonnement.Repository.BilRepository;
 import com.example.bilabonnement.Repository.LejeaftaleRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,21 +58,21 @@ public class LejeaftaleService {
 
 
 
+    @Transactional
+    public void afslutLejeaftale(int lejeaftale_id, String lejeaftaleStatus) {
+        lejeaftaleRepository.opdaterLejeaftaleStatus(lejeaftale_id, lejeaftaleStatus);
+        String stelnummer = findStelnummerByLejeaftaleId(lejeaftale_id);
 
-    public void afslutLejeaftale(int lejeaftale_Id, String lejeaftaleStatus) {
-        // Opdater lejeaftalens status
-        lejeaftaleRepository.opdaterLejeaftaleStatus(lejeaftale_Id, lejeaftaleStatus);
+        if (stelnummer != null) {
 
-        // Hent stelnummer baseret på lejeaftale_ID
-        String stelnummer = findStelnummerByLejeaftaleId(lejeaftale_Id);
-
-        // Opdater bilens status til "utilgængelig"
-        bilService.opdaterBilStatus(stelnummer, "utilgængelig");
+            bilService.opdaterBilStatus(stelnummer, "utilgængelig");
+        } else {
+            System.out.println("Ingen bil fundet for lejeaftale ID: " + lejeaftale_id);
+        }
     }
+    public String findStelnummerByLejeaftaleId(int lejeaftale_id) {
 
-    public String findStelnummerByLejeaftaleId(int lejeaftale_Id) {
-        // Hent stelnummer via repository
-        return lejeaftaleRepository.findStelnummerByLejeaftaleId(lejeaftale_Id);
+        return lejeaftaleRepository.findStelnummerByLejeaftaleId(lejeaftale_id);
     }
 
     }
