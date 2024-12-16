@@ -1,6 +1,5 @@
 package com.example.bilabonnement.Controller;
 
-import com.example.bilabonnement.Service.BilService;
 import com.example.bilabonnement.Service.LejeaftaleService;
 import org.springframework.ui.Model;
 import com.example.bilabonnement.Model.Rapport;
@@ -18,10 +17,6 @@ import static com.example.bilabonnement.Service.LejeaftaleService.*;
 @Controller
 @RequestMapping("/rapporter")
 public class RapportController {
-    @Autowired
-    private LejeaftaleService lejeaftaleService;
-    @Autowired
-    private BilService bilService;
 
     @Autowired
     RapportService rapportService;
@@ -125,34 +120,22 @@ public class RapportController {
     }
 
 
-   /* @PostMapping("/createAndUpdateStatus")
+   @PostMapping("/createAndUpdateStatus")
     public String createAndUpdateStatus(
             @ModelAttribute Rapport rapport,
-            @RequestParam("lejeaftaleId") int lejeaftale_Id,
+            @RequestParam("lejeaftaleId") int lejeaftale_id,
             @RequestParam("bilStatus") String bilStatus) {
 
+
         // Opret rapport
+        rapport.setLejeaftale_id(lejeaftale_id);
         rapportService.addRapport(rapport);
 
         // Afslut lejeaftale
-        lejeaftaleService.afslutLejeaftale(lejeaftale_Id, "Afsluttet");
+        rapportService.afslutLejeaftale(lejeaftale_id, "Afsluttet");
 
         // Opdater bilens status
-        bilService.opdaterBilStatus(rapport.getStelnummer(), bilStatus);
-
-        return "redirect:/rapporter/";
-    }*/
-
-   @PostMapping("/afslutLejeaftale")
-    public String afslutLejeaftale(@RequestParam("lejeaftaleId") int lejeaftaleId) {
-
-        lejeaftaleService.afslutLejeaftale(lejeaftaleId, "afsluttet");
-
-        String stelnummer = lejeaftaleService.findStelnummerByLejeaftaleId(lejeaftaleId);
-
-
-        bilService.opdaterBilStatus(stelnummer, "utilgængelig");
-
+        rapportService.opdaterBilStatus(rapport.getStelnummer(), bilStatus);
 
         return "redirect:/rapporter/";
     }

@@ -23,4 +23,12 @@ public class RapportService {
     }
     public void updateRapport (Rapport r){rapportRepo.updateRapport(r);
     }
+
+    public void afslutLejeaftale(int lejeaftaleId, String afsluttet) {
+        rapportRepo.afslutLejeaftale(lejeaftaleId, afsluttet);
+    }
+
+    public void opdaterBilStatus(String stelnummer, String bilStatus) {
+        rapportRepo.opdaterBilStatus(stelnummer, bilStatus);
+    }
 }
