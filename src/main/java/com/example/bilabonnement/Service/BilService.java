@@ -2,6 +2,7 @@ package com.example.bilabonnement.Service;
 
 import com.example.bilabonnement.Model.Bil;
 import com.example.bilabonnement.Repository.BilRepository;
+import com.example.bilabonnement.Repository.LejeaftaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,12 @@ public class BilService {
     }
 
 
+
+
+
+
+    public void opdaterBilStatus(String stelnummer, String nyStatus) {
+        bilRepository.opdaterStatus(stelnummer, nyStatus);
+    }
 }
 

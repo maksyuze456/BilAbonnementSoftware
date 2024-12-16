@@ -1,5 +1,7 @@
 package com.example.bilabonnement.Controller;
 
+import com.example.bilabonnement.Service.BilService;
+import com.example.bilabonnement.Service.LejeaftaleService;
 import org.springframework.ui.Model;
 import com.example.bilabonnement.Model.Rapport;
 import com.example.bilabonnement.Model.Skade;
@@ -11,9 +13,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.example.bilabonnement.Service.LejeaftaleService.*;
+
 @Controller
 @RequestMapping("/rapporter")
 public class RapportController {
+    @Autowired
+    private LejeaftaleService lejeaftaleService;
+    @Autowired
+    private BilService bilService;
 
     @Autowired
     RapportService rapportService;
@@ -115,5 +123,39 @@ public class RapportController {
         skadeService.updateSkade(skade);
         return "redirect:/rapporter/" + skade.getRapportID();
     }
+
+
+    @PostMapping("/createAndUpdateStatus")
+    public String createAndUpdateStatus(
+            @ModelAttribute Rapport rapport,
+            @RequestParam("lejeaftale_Id") int lejeaftale_Id,
+            @RequestParam("bilStatus") String bilStatus) {
+
+        // Opret rapport
+        rapportService.addRapport(rapport);
+
+        // Afslut lejeaftale
+        lejeaftaleService.afslutLejeaftale(lejeaftale_Id, "afsluttet");
+
+        // Opdater bilens status
+        bilService.opdaterBilStatus(rapport.getStelnummer(), bilStatus);
+
+        return "redirect:/rapporter/";
+    }
+
+   /* @PostMapping("/afslutLejeaftale")
+    public String afslutLejeaftale(@RequestParam("lejeaftaleId") int lejeaftaleId) {
+        // 1. Opdater lejeaftalens status til "afsluttet"
+        lejeaftaleService.afslutLejeaftale(lejeaftaleId, "afsluttet");
+
+        // 2. Hent stelnummeret, som er relateret til lejeaftalen
+        String stelnummer = lejeaftaleService.findStelnummerByLejeaftaleId(lejeaftaleId);
+
+        // 3. Opdater bilens status til "utilgængelig"
+        bilService.opdaterBilStatus(stelnummer, "utilgængelig");
+
+        // Omdiriger til en oversigt eller anden relevant side
+        return "redirect:/rapporter/";
+    }*/
 
 }

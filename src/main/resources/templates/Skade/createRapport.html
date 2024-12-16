@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/Skade/rapporter.css}">
     <link rel="stylesheet" th:href="@{/forsi.css}">
     <link rel="stylesheet" th:href="@{/opretForm.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
@@ -69,7 +70,22 @@
                             Oprettelse dato:
                             <input type="date" th:field="${rapport.oprettetDato}">
                         </label>
-                        <button type="submit">opret</button>
+                        <label>
+                            Lejeaftale ID:
+                            <input type="number" name="lejeaftaleId" placeholder="Indtast lejeaftale ID" required>
+                        </label>
+                        <br>
+
+                        <label>
+                            Opdater Bil Status:
+                            <select name="bilStatus">
+                                <option value="tilgængelig">Tilgængelig</option>
+                                <option value="indleveret">Indleveret</option>
+                            </select>
+                        </label>
+                        <br>
+
+                        <button type="submit">Opret Rapport og Opdater Status</button>
                     </form>
                 </div>
             </div>

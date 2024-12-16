@@ -1,0 +1,194 @@
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #0056b3;
+}
+
+.container {
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+button {
+    width: 100%;
+    background-color: #0056b3;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #003f88;
+    transform: translateY(-2px);
+}
+
+button.secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+button.secondary:hover {
+    background-color: #c7c7c7;
+}
+
+/* Flex layout for horizontal forms */
+.flex-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.flex-form label {
+    flex: 0 0 20%;
+    margin-bottom: 0;
+}
+
+.flex-form input, .flex-form select {
+    flex: 1;
+    width: auto;
+}
+
+.flex-form button {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 10px 20px;
+}
+
+/* Specific styling for add/edit forms */
+.add-edit-container {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-edit-container h2 {
+    margin-bottom: 15px;
+    color: #0056b3;
+}
+
+.add-edit-container button {
+    margin-top: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #0056b3;
+    color: white;
+}
+
+.action-buttons button:hover {
+    background-color: #003f88;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* Ensure buttons in the table are aligned */
+td.action {
+    text-align: right;
+    vertical-align: middle;
+}
+
+td.action button {
+    margin-left: 5px;
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #0056b3;
+    color: white;
+}
+
+td.action button:hover {
+    background-color: #003f88;
+}

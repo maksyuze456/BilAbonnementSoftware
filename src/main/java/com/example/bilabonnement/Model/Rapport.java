@@ -12,15 +12,18 @@ public class Rapport {
         private String beskrivelse;
         private Date oprettetDato;
         private String stelnummer;
+        private String bilStatus;
 
-        public Rapport(){}
+
+    public Rapport(){}
 
 
-    public Rapport(int rapportID, String beskrivelse, Date oprettetDato, String stelnummer){
+    public Rapport(int rapportID, String beskrivelse, Date oprettetDato, String stelnummer, String bilStatus){
             this.rapportID = rapportID;
             this.beskrivelse = beskrivelse;
             this.oprettetDato = oprettetDato;
             this.stelnummer = stelnummer;
+            this.bilStatus = bilStatus;
         }
     public String getStelnummer() {
         return stelnummer;
@@ -55,5 +58,12 @@ public class Rapport {
             this.oprettetDato = oprettetDato;
         }
 
+    public String getBilStatus() {
+        return bilStatus;
     }
+
+    public void setBilStatus(String bilStatus) {
+        this.bilStatus = bilStatus;
+    }
+}
 
