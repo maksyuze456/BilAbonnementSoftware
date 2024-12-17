@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/rapporter.css}">
-    <link rel="stylesheet" th:href="@{/forsi.css}">
-    <link rel="stylesheet" th:href="@{/Skade/rapporter.css}">
+    <link rel="stylesheet" th:href="@{/Forside.css}">
+    <link rel="stylesheet" th:href="@{/newTable.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
@@ -16,19 +16,19 @@
         <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
         <h2>**</h2>
         <div class="section">
-            <a href="/">
+            <a href="/lejeaftale/dataregForsiden">
                 <img src="/images/database.png">
                 <h3>Dataregistrering</h3>
             </a>
         </div>
         <div class="section">
-            <a href="/">
+            <a href="/rapporter/">
                 <img src="/images/tools.png">
                 <h3>Skade&Udbedring</h3>
             </a>
         </div>
         <div class="section">
-            <a href="/forretningsudvikler">
+            <a href="/forretningsudvikler/">
                 <img src="/images/briefcase.png">
                 <h3>Forretningsudvikler</h3>
             </a>
@@ -37,12 +37,12 @@
     <div class="main-content">
         <h2>Skade&Udbedring</h2>
         <div class="main-buttons">
-            <a href="">
+            <a href="/rapporter/">
                 <button id="active">Alle rapporter</button>
             </a>
 
-            <a href="create">
-                <button>Opret Rapport</button>
+            <a href="create/chooseCar">
+                <button>Håndter tilbagelevering</button>
             </a>
         </div>
         <div class="dynamic-content">
@@ -61,7 +61,8 @@
                         <thead>
                         <tr>
                             <td>RapportID</td>
-                            <td>Oprettet dato</td>
+                            <td>LejeaftaleID</td>
+                            <td>Oprettet</td>
                             <td>Stelnummer</td>
                             <td>Beskrivelse</td>
                             <td>Action</td>
@@ -69,6 +70,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="rapport: ${rapporter}">
+                            <td th:text="${rapport.rapportID}">
                             <td th:text="${rapport.rapportID}">
                             <td th:text="${rapport.oprettetDato}">
                             <td th:text="${rapport.stelnummer}">

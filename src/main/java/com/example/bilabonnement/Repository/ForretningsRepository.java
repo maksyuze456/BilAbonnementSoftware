@@ -2,6 +2,7 @@ package com.example.bilabonnement.Repository;
 
 import com.example.bilabonnement.Model.Bil;
 import com.example.bilabonnement.Model.LeasingPrice;
+import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -12,8 +13,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
+@Table(
+        name = "bil",
+        catalog = "gruppe8af2"
+)
 @Repository
 public class ForretningsRepository {
+
     @Autowired
     JdbcTemplate jdbcTemplate;
 

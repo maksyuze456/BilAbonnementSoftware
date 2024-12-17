@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/forsi.css}">
-    <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="stylesheet" th:href="@{/Forside.css}">
+    <link rel="stylesheet" th:href="@{/newTable.css}">
     <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsUdlejede.css}">
     <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsViewBil.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
@@ -23,13 +23,13 @@
             </a>
         </div>
         <div class="section">
-            <a href="/">
+            <a href="/rapporter/">
                 <img src="/images/tools.png">
                 <h3>Skade&Udbedring</h3>
             </a>
         </div>
         <div class="section">
-            <a href="/forretningsudvikler/udlejet">
+            <a href="/forretningsudvikler/">
                 <img src="/images/briefcase.png">
                 <h3>Forretningsudvikler</h3>
             </a>
@@ -45,13 +45,7 @@
                 <button>Alle tilgængelige</button>
             </a>
             <a href="/forretningsudvikler/opret_bil">
-                <button id="">Opret bil</button>
-            </a>
-            <a href="">
-                <button>Biler</button>
-            </a>
-            <a href="">
-                <button>Rapporter</button>
+                <button>Opret bil</button>
             </a>
         </div>
         <div class="dynamic-content">
@@ -64,45 +58,43 @@
                 </div>
             </div>
             <div class="right">
-                <div class="container">
-                    <h3 th:text="${car.mærke} + ' ' + ${car.model}"></h3>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>Stelnummer</td>
-                            <td th:text="${car.stelnummer}"></td>
-                        </tr>
-                        <tr>
-                            <td>Brand</td>
-                            <td th:text="${car.mærke}"></td>
-                        </tr>
-                        <tr>
-                            <td>Model</td>
-                            <td th:text="${car.model}"></td>
-                        </tr>
-                        <tr>
-                            <td>Brændstof</td>
-                            <td th:text="${car.brandstof}"></td>
-                        </tr>
-                        <tr>
-                            <td>Odometer</td>
-                            <td th:text="${car.odometer}"></td>
-                        </tr>
-                        <tr>
-                            <td>Leasing pris</td>
-                            <td th:text="${car.pris}+ ',-'"></td>
-                        </tr>
-                        <tr>
-                            <td>Status</td>
-                            <td th:text="${car.bilStatus}"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="table-buttons">
-                        <a th:href="@{'/forretningsudvikler/edit_car/' + ${car.stelnummer}}">
-                            <button>Rediger</button>
-                        </a>
-                    </div>
+                <h3 th:text="${car.mærke} + ' ' + ${car.model}"></h3>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>Stelnummer</td>
+                        <td th:text="${car.stelnummer}"></td>
+                    </tr>
+                    <tr>
+                        <td>Brand</td>
+                        <td th:text="${car.mærke}"></td>
+                    </tr>
+                    <tr>
+                        <td>Model</td>
+                        <td th:text="${car.model}"></td>
+                    </tr>
+                    <tr>
+                        <td>Brændstof</td>
+                        <td th:text="${car.brandstof}"></td>
+                    </tr>
+                    <tr>
+                        <td>Odometer</td>
+                        <td th:text="${car.odometer}"></td>
+                    </tr>
+                    <tr>
+                        <td>Leasing pris</td>
+                        <td th:text="${car.pris}+ ',-'"></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td th:text="${car.bilStatus}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="table-buttons">
+                    <a th:href="@{'/forretningsudvikler/edit_car/' + ${car.stelnummer}}">
+                        <button>Rediger</button>
+                    </a>
                 </div>
             </div>
         </div>

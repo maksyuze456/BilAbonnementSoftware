@@ -8,17 +8,7 @@ ul {
     display: flex;
     justify-content: center;
 }
-#table-buttons {
-    display: flex;
-    justify-items: center;
-}
 .right {
     width: 100%;
 }
-.main-buttons button:hover,
-.main-buttons button:active,
-.main-buttons button:focus{
-    border-color: #549cc4;
-    cursor: pointer;
 
-}

@@ -5,8 +5,7 @@ html {
 body {
     font-family: Be Vietnam Pro;
     margin: 0;
-    background-color: #FFFFFF;
-
+    background-color: #f9f9f9;
 }
 
 h1, h2,h3 {
@@ -26,6 +25,7 @@ h1, h2,h3 {
 
 }
 .nav {
+    background-color: white;
     grid-area: nav;
     height: 100%;
     border-radius: 8px;
@@ -64,6 +64,7 @@ h1, h2,h3 {
     border-color: #549cc4;
 }
 .main-content{
+    background-color: white;
     grid-area: content;
     display: flex;
     flex-direction: column;
@@ -101,15 +102,6 @@ h1, h2,h3 {
     grid-template-areas: "left right";
     grid-template-columns: 0.5fr 1fr;
 }
-.left {
 
-}
-.right {
-
-}
-.home {
-    padding: 0;
-    background-color: red;
-}
 
 

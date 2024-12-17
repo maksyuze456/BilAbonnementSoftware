@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/forsi.css}">
-    <link rel="stylesheet" th:href="@{/table.css}">
+    <link rel="stylesheet" th:href="@{/Forside.css}">
+    <link rel="stylesheet" th:href="@{/newTable.css}">
     <link rel="stylesheet" th:href="@{/chooseCar.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
@@ -22,29 +22,27 @@
             </a>
         </div>
         <div class="section">
-            <a href="/">
+            <a href="/rapporter/">
                 <img src="/images/tools.png">
                 <h3>Skade&Udbedring</h3>
             </a>
         </div>
         <div class="section">
-            <a href="/forretningsudvikler/udlejet">
+            <a href="/forretningsudvikler/">
                 <img src="/images/briefcase.png">
                 <h3>Forretningsudvikler</h3>
             </a>
         </div>
     </div>
     <div class="main-content">
-        <h2>Dataregistrering</h2>
+        <h2>Skade&Udbedring</h2>
         <div class="main-buttons">
-            <a href="/lejeaftale/aktiv">
-                <button>Aktive lejeaftaler</button>
+            <a href="/rapporter/">
+                <button id="active">Alle rapporter</button>
             </a>
-            <a href="/lejeaftale/afsluttet">
-                <button>Inaktive lejeaftaler</button>
-            </a>
-            <a href="/lejeaftale/create/chooseCustomer">
-                <button>Opret lejeaftale</button>
+
+            <a href="create/chooseCar">
+                <button>Håndter tilbagelevering</button>
             </a>
         </div>
         <div class="dynamic-content">

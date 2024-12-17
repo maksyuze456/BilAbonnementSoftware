@@ -31,9 +31,17 @@ public class RapportController {
         return "skade/skadeudbedring";
     }
 
-    @GetMapping("/create")
-    public String create(Model model) {
-        model.addAttribute("rapport", new Rapport());
+    @GetMapping("/create/chooseCar")
+    public String chooseCar(Model model){
+        model.addAttribute("carList", rapportService.fetchAllCarsByStatus("udlejet"));
+        return "skade/chooseUdlejet";
+    }
+    @GetMapping("/create/{stelnummer}")
+    public String create(@PathVariable("stelnummer") String stelnummer, Model model) {
+        Rapport rapport = new Rapport();
+        rapport.setStelnummer(stelnummer);
+        rapport.setLejeaftale_id(rapportService.getCorrectLejeaftaleId("Aktiv", stelnummer));
+        model.addAttribute("rapport", rapport);
         return "skade/createRapport";
     }
 
@@ -78,7 +86,6 @@ public class RapportController {
         rapportService.updateRapport(r);
         return "redirect:/rapporter/";
     }
-
     //skade tilføjelser
 
     @GetMapping("/add/{rapportID}")
@@ -123,16 +130,14 @@ public class RapportController {
    @PostMapping("/createAndUpdateStatus")
     public String createAndUpdateStatus(
             @ModelAttribute Rapport rapport,
-            @RequestParam("lejeaftaleId") int lejeaftale_id,
             @RequestParam("bilStatus") String bilStatus) {
 
 
         // Opret rapport
-        rapport.setLejeaftale_id(lejeaftale_id);
         rapportService.addRapport(rapport);
 
         // Afslut lejeaftale
-        rapportService.afslutLejeaftale(lejeaftale_id, "Afsluttet");
+        rapportService.afslutLejeaftale(rapport.getLejeaftale_id(), "Afsluttet");
 
         // Opdater bilens status
         rapportService.opdaterBilStatus(rapport.getStelnummer(), bilStatus);

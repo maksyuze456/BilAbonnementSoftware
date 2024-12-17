@@ -19,14 +19,14 @@ public class LejeaftaleController {
     @GetMapping("/dataregForsiden")
     public String index(Model model) {
         model.addAttribute("lejeaftaler", lejeaftaleService.fetchAllLejeaftale());
-        return "home/dataregForsiden";
+        return "lejeaftale/dataregForsiden";
     }
 
     // Henter og tilføjer lejeaftaler baseret på deres status til modellen som bruges på HTML-siden
     @GetMapping("{lejeaftaleStatus}")
     public String lejeaftaleByStatus(@PathVariable String lejeaftaleStatus, Model model) {
         model.addAttribute("lejeaftaler", lejeaftaleService.fetchAllLejeaftalerByStatus(lejeaftaleStatus));
-        return "home/dataregForsiden";
+        return "lejeaftale/dataregForsiden";
     }
 
     // Viser formular til at oprette en ny lejeaftale med tidligere valgt kunde nr og bil stelnummer som gemmes i url parametre hen ad vejen
@@ -36,7 +36,7 @@ public class LejeaftaleController {
         lejeaftale.setStelnummer(stelnummer);
         lejeaftale.setKunde_nr(kunde_nr);
         model.addAttribute("lejeaftale", lejeaftale);
-        return "home/lejeaftale/createlejeaftale";
+        return "lejeaftale/createlejeaftale";
     }
 
     // Viser en liste af tilgængelige biler, hvor kunden kan vælge en bil
@@ -45,7 +45,7 @@ public class LejeaftaleController {
     @GetMapping("/create/{kunde_nr}/chooseCar")
     public String chooseCar(Model model){
         model.addAttribute("carList", lejeaftaleService.fetchAllCarsByStatus("tilgængelig"));
-        return "home/lejeaftale/chooseCar";
+        return "lejeaftale/chooseCar";
     }
 
     // Viser en liste af kunder, hvor en kunde kan vælges til en ny lejeaftale
@@ -53,7 +53,7 @@ public class LejeaftaleController {
     @GetMapping("/create/chooseCustomer")
     public String chooseCustomer(Model model){
         model.addAttribute("kundeList", lejeaftaleService.fetchAllKunder());
-        return "home/lejeaftale/chooseCustomer";
+        return "lejeaftale/chooseCustomer";
     }
 
     // Post metode efter end oprettelse af lejeaftalen i formular
@@ -69,7 +69,7 @@ public class LejeaftaleController {
         Lejeaftale lejeaftale = lejeaftaleService.findLejeaftaleById(lejeaftale_id);
 
         model.addAttribute("lejeaftale",lejeaftale);
-        return "home/lejeaftale/updateLejeaftale";
+        return "lejeaftale/updateLejeaftale";
     }
     @PostMapping("/update")
     public String updateLejeaftale(@ModelAttribute Lejeaftale lejeaftale){
@@ -84,7 +84,7 @@ public class LejeaftaleController {
 
         model.addAttribute("lejeaftale", lejeaftaleService.findLejeaftaleById(lejeaftale_id));
 
-        return "home/lejeaftale/viewLejeaftale";
+        return "lejeaftale/viewLejeaftale";
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.bilabonnement.Service;
 
+import com.example.bilabonnement.Model.Bil;
 import com.example.bilabonnement.Model.Rapport;
 import com.example.bilabonnement.Repository.RapportRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,12 @@ public class RapportService {
         return rapportRepo.deleteRapport(rapportID);
     }
     public void updateRapport (Rapport r){rapportRepo.updateRapport(r);
+    }
+    public int getCorrectLejeaftaleId(String lejeaftaleStatus, String stelnummer) {
+        return rapportRepo.getCorrectLejeaftaleId(lejeaftaleStatus, stelnummer);
+    }
+    public List<Bil> fetchAllCarsByStatus(String bilStatus) {
+        return rapportRepo.fetchAllCarsByStatus(bilStatus);
     }
 
     public void afslutLejeaftale(int lejeaftaleId, String afsluttet) {

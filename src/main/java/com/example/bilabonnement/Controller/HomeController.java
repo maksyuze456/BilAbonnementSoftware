@@ -10,7 +10,7 @@ public class HomeController {
     @GetMapping("/")
     public String homePage(Model model) {
 
-        return "home/forside";
+        return "home/index";
     }
 
 

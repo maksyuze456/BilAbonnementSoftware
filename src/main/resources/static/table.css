@@ -15,7 +15,7 @@ thead td{
 }
 
 tbody tr {
-    background-color: #eaeaea;
+    background-color: #f9f9f9;
 }
 tbody tr:nth-child(even){
     background-color: #FFFFFF;

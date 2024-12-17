@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/Skade/rapporter.css}">
-    <link rel="stylesheet" th:href="@{/forsi.css}">
+    <link rel="stylesheet" th:href="@{/Forside.css}">
     <link rel="stylesheet" th:href="@{/opretForm.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
@@ -16,7 +15,7 @@
         <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
         <h2>**</h2>
         <div class="section">
-            <a href="/">
+            <a href="/lejeaftale/dataregForsiden">
                 <img src="/images/database.png">
                 <h3>Dataregistrering</h3>
             </a>
@@ -28,7 +27,7 @@
             </a>
         </div>
         <div class="section">
-            <a href="/forretningsudvikler">
+            <a href="/forretningsudvikler/">
                 <img src="/images/briefcase.png">
                 <h3>Forretningsudvikler</h3>
             </a>
@@ -38,29 +37,27 @@
         <h2>Skade&Udbedring</h2>
         <div class="main-buttons">
             <a href="/rapporter/">
-                <button>Alle rapporter</button>
+                <button id="active">Alle rapporter</button>
             </a>
-            <a href="">
-                <button>Registrering</button>
-            </a>
-            <a href="">
-                <button>Biler</button>
-            </a>
-            <a href="">
-                <button>Rapporter</button>
-            </a>
-            <a href="create">
-                <button id="active">Opret rapport</button>
+
+            <a href="create/chooseCar">
+                <button>Håndter tilbagelevering</button>
             </a>
         </div>
         <div class="create-container">
             <div class="create-form">
-                <h3>Opret Skade Rapport'</h3>
+                <h3>Opret Skade Rapport</h3>
                 <div class="form">
                     <form th:action="@{/rapporter/createAndUpdateStatus}" method="post">
                         <label>
+                            Lejeaftale ID:
+                            <input type="hidden" th:field="${rapport.lejeaftale_id}">
+                            <span th:text="${rapport.lejeaftale_id}"></span>
+                        </label>
+                        <label>
                             Stelnummer:
-                            <input type="text" th:field="${rapport.stelnummer}">
+                            <input type="hidden" th:field="${rapport.stelnummer}">
+                            <span th:text="${rapport.stelnummer}"></span>
                         </label>
                         <label>
                             Beskrivelse:
@@ -71,13 +68,7 @@
                             <input type="date" th:field="${rapport.oprettetDato}">
                         </label>
                         <label>
-                            Lejeaftale ID:
-                            <input type="number" name="lejeaftaleId" placeholder="Indtast lejeaftale ID" required>
-                        </label>
-                        <br>
-
-                        <label>
-                            Opdater Bil Status:
+                            Bil status:
                             <select name="bilStatus">
                                 <option value="Tilgængelig">Tilgængelig</option>
                                 <option value="Tilbageleveret">Tilbageleveret</option>
@@ -85,7 +76,7 @@
                         </label>
                         <br>
 
-                        <button type="submit">Opret Rapport og Opdater Status</button>
+                        <button type="submit">Opret rapport</button>
                     </form>
                 </div>
             </div>

@@ -14,6 +14,12 @@ public class ForretningsController {
     ForretningsService forretningsService;
 
 
+    @GetMapping("/")
+    public String forretningsudviklerHome() {
+
+        return "forretningsudvikler/forretningsudviklerForside";
+    }
+
     // Henter en liste af biler efter status, beregner total indkomst, og tæller antal biler
     // Sender det hele i model objectet som så bruges dynamisk på HTML-siden
     @GetMapping("/{bilStatus}")
