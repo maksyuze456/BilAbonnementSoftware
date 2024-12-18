@@ -28,6 +28,12 @@ public class SkadeService {
     public void deleteSkadeById(int skadeID) {
         skadeRepo.deleteSkadeById(skadeID);
     }
+    public void deleteAllSkaderByRapportId(int rapportID) {
+        List<Skade> skader = findSkaderByRapportID(rapportID);
+        for(Skade skade: skader) {
+            deleteSkadeById(skade.getSkadeID());
+        }
+    }
 
     public double getTotalPriceByRapportID(int rapportID) {
         return skadeRepo.getTotalPriceByRapportID(rapportID);

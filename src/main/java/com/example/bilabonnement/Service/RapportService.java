@@ -2,6 +2,7 @@ package com.example.bilabonnement.Service;
 
 import com.example.bilabonnement.Model.Bil;
 import com.example.bilabonnement.Model.Rapport;
+import com.example.bilabonnement.Model.Skade;
 import com.example.bilabonnement.Repository.RapportRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

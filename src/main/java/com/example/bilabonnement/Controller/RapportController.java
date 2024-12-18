@@ -87,6 +87,7 @@ public class RapportController {
     // Sletter en skade rapport
     @PostMapping("/deleteOne/{rapportID}")
     public String deleteOne(@PathVariable("rapportID") int rapportID) {
+        skadeService.deleteAllSkaderByRapportId(rapportID);
         rapportService.deleteRapport(rapportID);
         return "redirect:/rapporter/";
     }
