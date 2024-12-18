@@ -25,8 +25,7 @@ public class RapportService {
     }
     public void updateRapport (Rapport r){rapportRepo.updateRapport(r);
     }
-    public int getAntalRapporter(){
-        List<Rapport> rapporter = fetchAll();
+    public int getAntalRapporter(List<Rapport> rapporter){
         int counter = 0;
         for(Rapport rapport: rapporter) {
             counter++;

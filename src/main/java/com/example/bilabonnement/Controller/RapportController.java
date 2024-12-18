@@ -33,7 +33,7 @@ public class RapportController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("rapporter", rapportService.fetchAll());
-        model.addAttribute("antalRapporter", rapportService.getAntalRapporter());
+        model.addAttribute("antalRapporter", rapportService.getAntalRapporter(rapportService.fetchAll()));
         return "skade/skadeudbedring";
     }
 
