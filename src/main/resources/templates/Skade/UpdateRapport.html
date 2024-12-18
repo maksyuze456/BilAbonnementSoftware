@@ -3,30 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/Skade/rapporter.css}">
-    <title>Opdatere Rapport</title>
+    <link rel="stylesheet" th:href="@{/Forside.css}">
+    <link rel="stylesheet" th:href="@{/opretForm.css}">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
+    <title>Title</title>
 </head>
 <body>
-<div class="container">
-    <form th:action="@{'/rapporter/update'}" method="post">
-        <label>
-            Stelnummer:
-            <input type="text" th:field="*{rapport.stelnummer}" />
-        </label>
-        <label>
-            Beskrivelse:
-            <input type="text" th:field="*{rapport.beskrivelse}" />
-        </label>
-        <label>
-            Oprettelsesdato:
-            <input type="date" th:field="*{rapport.oprettetDato}" />
-        </label>
-        <label>
-            ID:
-            <input type="hidden" th:field="*{rapport.rapportID}" />
-            <span th:text="*{rapport.rapportID}"></span>
-        </label>
-        <button type="submit">Opdater</button>
-    </form>
+<div class="page">
+    <div class="nav">
+        <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
+        <div class="section">
+            <a href="/lejeaftale/dataregForsiden">
+                <img src="/images/database.png">
+                <h3>Dataregistrering</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/rapporter/forside">
+                <img src="/images/tools.png">
+                <h3>Skade&Udbedring</h3>
+            </a>
+        </div>
+        <div class="section">
+            <a href="/forretningsudvikler/">
+                <img src="/images/briefcase.png">
+                <h3>Forretningsudvikler</h3>
+            </a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h2>Skade&Udbedring</h2>
+        <div class="main-buttons">
+            <a href="/rapporter/">
+                <button id="active">Alle rapporter</button>
+            </a>
+
+            <a href="create/chooseCar">
+                <button>Håndter tilbagelevering</button>
+            </a>
+        </div>
+        <div class="create-container">
+            <div class="create-form">
+                <h3>Opdater Rapport</h3>
+                <div class="form">
+                    <form th:action="@{'/rapporter/update'}" method="post">
+                        <label>
+                            Stelnummer:
+                            <input type="text" th:field="*{rapport.stelnummer}" />
+                        </label>
+                        <label>
+                            Beskrivelse:
+                            <input type="text" th:field="*{rapport.beskrivelse}" />
+                        </label>
+                        <label>
+                            Oprettelsesdato:
+                            <input type="date" th:field="*{rapport.oprettetDato}" />
+                        </label>
+                        <label>
+                            ID:
+                            <input type="hidden" th:field="*{rapport.rapportID}" />
+                            <span th:text="*{rapport.rapportID}"></span>
+                        </label>
+                        <button type="submit">Opdater</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
+
 </body>
 </html>

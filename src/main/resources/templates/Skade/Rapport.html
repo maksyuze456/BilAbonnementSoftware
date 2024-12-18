@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/rapporter.css}">
     <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/Skade/rapporter.css}">
+    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Skade/viewSkade.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
@@ -45,25 +45,13 @@
             </a>
         </div>
         <div class="dynamic-content">
-            <div class="left">
-                <h3>Oversigt:</h3>
-                <ul>
-                    <li>test</li>
-                    <li>test</li>
-
-                </ul>
-            </div>
             <div class="right">
                 <div class="container">
-
+                    <h3 th:text="'Rapport ID: ' + ${rapport.rapportID}"></h3>
                     <table>
                         <thead>
 
                         <tbody>
-                        <tr>
-                            <td>Rapport Id</td>
-                            <td th:text="${rapport.rapportID}">
-                        </tr>
                         <tr>
                             <td>Stelnummer</td>
                             <td th:text="${rapport.stelnummer}">
@@ -76,16 +64,9 @@
                             <td><Id>Oprettelses Dato</Id></td>
                             <td th:text="${rapport.oprettetDato}">
                         </tr>
-                        <br/>
-                        <button type="submit">Opdater Status</button>
-
                         </tbody>
                     </table>
-                    </thead>
                     <div class="table-buttons">
-                        <a th:href="@{/rapporter/add/{rapportID}(rapportID=${rapport.rapportID})}">
-                            <button>Tilføj Skade</button>
-                        </a>
                         <a th:href="@{'update/' + ${rapport.rapportID}}">
                             <button>Redigere</button>
                         </a>
@@ -123,10 +104,11 @@
                         </td>
                     </tr>
                     </table>
-                        </thead>
-
-                        </tbody>
-
+                    <div class="table-buttons">
+                        <a th:href="@{/rapporter/add/{rapportID}(rapportID=${rapport.rapportID})}">
+                            <button>Tilføj Skade</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

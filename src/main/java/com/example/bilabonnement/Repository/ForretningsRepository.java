@@ -30,7 +30,7 @@ public class ForretningsRepository {
         return jdbcTemplate.query(sql, rowMapper, carStatus);
 
     }
-
+    
     // Tager en enkel bil ud af databasen efter hvilken stelnummer der bliver sendt i parametrene
     public Bil fetchCarByStelnummer(String stelnummer) {
         String sql = "SELECT * from bil where stelnummer = ?";
