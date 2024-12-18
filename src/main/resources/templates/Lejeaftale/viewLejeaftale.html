@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/newTable.css}">
     <link rel="stylesheet" th:href="@{/Lejeaftale/viewLejeaftale.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
@@ -52,32 +52,36 @@
             </div>
             <div class="right">
                 <div class="container">
-                    <h3 th:text="'Lejeaftale ID: ' + ${lejeaftale.lejeaftale_id}"></h3>
+                    <h3>Lejeaftale</h3>
                     <table>
                         <tbody>
                         <tr>
+                            <td>Lejeaftale ID</td>
+                            <td class="data-cell" th:text="${lejeaftale.lejeaftale_id}"></td>
+                        </tr>
+                        <tr>
                             <td>Stelnummer</td>
-                            <td th:text="${lejeaftale.stelnummer}"></td>
+                            <td class="data-cell" th:text="${lejeaftale.stelnummer}"></td>
                         </tr>
                         <tr>
                             <td>Kunde Nr</td>
-                            <td th:text="${lejeaftale.kunde_nr}"></td>
+                            <td class="data-cell" th:text="${lejeaftale.kunde_nr}"></td>
                         </tr>
                         <tr>
                             <td>Start Dato</td>
-                            <td th:text="${lejeaftale.start_dato}"></td>
+                            <td class="data-cell" th:text="${lejeaftale.start_dato}"></td>
                         </tr>
                         <tr>
                             <td>Slut Dato</td>
-                            <td th:text="${lejeaftale.slut_dato}"></td>
+                            <td class="data-cell" th:text="${lejeaftale.slut_dato}"></td>
                         </tr>
                         <tr>
                             <td>Pris</td>
-                            <td th:text="${lejeaftale.pris}"></td>
+                            <td class="data-cell" th:text="${lejeaftale.pris}"></td>
                         </tr>
                         <tr>
                             <td>Afhentningsted</td>
-                            <td th:text="${lejeaftale.afhentningsted}"></td>
+                            <td class="data-cell" th:text="${lejeaftale.afhentningsted}"></td>
 
                         </tr>
                         </tbody>

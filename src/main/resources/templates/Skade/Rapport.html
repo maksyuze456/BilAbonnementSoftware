@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/newTable.css}">
     <link rel="stylesheet" th:href="@{/Skade/viewSkade.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
@@ -47,23 +47,25 @@
         <div class="dynamic-content">
             <div class="right">
                 <div class="container">
-                    <h3 th:text="'Rapport ID: ' + ${rapport.rapportID}"></h3>
+                    <h3>Rapport</h3>
                     <table>
-                        <thead>
-
                         <tbody>
-                        <tr>
-                            <td>Stelnummer</td>
-                            <td th:text="${rapport.stelnummer}">
-                        </tr>
-                        <tr>
-                            <td>Beskrivelse</td>
-                            <td th:text="${rapport.beskrivelse}">
-                        </tr>
-                        <tr>
-                            <td><Id>Oprettelses Dato</Id></td>
-                            <td th:text="${rapport.oprettetDato}">
-                        </tr>
+                            <tr>
+                            <td>Rapport ID</td>
+                            <td class="data-cell" th:text="${rapport.rapportID}">
+                            </tr>
+                            <tr>
+                                <td>Stelnummer</td>
+                                <td class="data-cell" th:text="${rapport.stelnummer}">
+                            </tr>
+                            <tr>
+                                <td>Beskrivelse</td>
+                                <td class="data-cell" th:text="${rapport.beskrivelse}">
+                            </tr>
+                            <tr>
+                                <td>Oprettelses Dato</td>
+                                <td class="data-cell" th:text="${rapport.oprettetDato}">
+                            </tr>
                         </tbody>
                     </table>
                     <div class="table-buttons">
@@ -76,33 +78,37 @@
                         </form>
 
                     </div>
+                </div>
+                <div class="container">
                     <h3>Skader</h3>
                     <table>
-                        <thead>
-
                         <tbody>
-                    <tr>
-                        <th>Skade beskrivelse</th>
-                        <th>Kategori</th>
-                        <th>Pris</th>
-                        <th>Action</th>
-                    </tr>
+                        <tr>
+                            <th>Skade beskrivelse</th>
+                            <th>Kategori</th>
+                            <th>Pris</th>
+                            <th>Action</th>
+                        </tr>
                         <tr th:if="${#lists.isEmpty(skader)}">
                             <td colspan="4">Ingen skader tilføjet endnu.</td>
                         </tr>
-                    <tr th:each="skade : ${skader}">
-                        <td th:text="${skade.skadebeskrivelse}"></td>
-                        <td th:text="${skade.kategori}"></td>
-                        <td th:text="${skade.pris} + ' DKK'"></td>
-                        <td>
-                            <a th:href="@{'/rapporter/updateSkade/' + ${skade.skadeID}}">
-                                <button>Opdater</button>
-                            </a>
-                            <form th:action="@{'/rapporter/delete/' + ${skade.skadeID}}" method="post">
-                                <button type="submit">Slet</button>
-                            </form>
-                        </td>
-                    </tr>
+                        <tr th:each="skade : ${skader}">
+                            <td th:text="${skade.skadebeskrivelse}"></td>
+                            <td th:text="${skade.kategori}"></td>
+                            <td th:text="${skade.pris} + ' DKK'"></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <a th:href="@{'/rapporter/updateSkade/' + ${skade.skadeID}}">
+                                        <img th:src="@{/images/view.png}" alt="edit">
+                                    </a>
+                                    <form th:action="@{'/rapporter/delete/' + ${skade.skadeID}}" method="post">
+                                        <button type="submit">
+                                            <img th:src="@{/images/trash.png}" alt="edit">
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                     </table>
                     <div class="table-buttons">
                         <a th:href="@{/rapporter/add/{rapportID}(rapportID=${rapport.rapportID})}">

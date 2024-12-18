@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" th:href="@{/Forside.css}">
-  <link rel="stylesheet" th:href="@{/newTable.css}">
+  <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+  <link rel="stylesheet" th:href="@{/Reuse/newTable.css}">
   <link rel="stylesheet" th:href="@{/Lejeaftale/lejeaftale.css}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,6 +70,9 @@
             </tr>
             </thead>
             <tbody>
+            <tr th:if="${#lists.isEmpty(lejeaftaler)}">
+              <td colspan="8">Ingen lejeaftaler eksister med den filtre.</td>
+            </tr>
             <tr th:each="lejeaftale : ${lejeaftaler}">
               <td th:text="${lejeaftale.lejeaftale_id}"></td>
               <td th:text="${lejeaftale.kunde_nr}"></td>

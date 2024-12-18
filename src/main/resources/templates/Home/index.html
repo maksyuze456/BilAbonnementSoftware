@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/banner.css}">
+    <link rel="stylesheet" th:href="@{/Home/homeForside.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
@@ -32,29 +34,29 @@
         </div>
     </div>
     <div class="main-content">
-        <h1>Heading</h1>
-        <div class="main-buttons">
-            <a href="/">
-                <button>Alle</button>
-            </a>
-            <a href="/">
-                <button>Registrering</button>
-            </a>
-            <a href="/">
-                <button>Biler</button>
-            </a>
-            <a href="/">
-                <button>Rapporter</button>
-            </a>
+        <div class="banner-header">
+            <img src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
+            <h1>BilAbonnement Management Software 1.0</h1>
         </div>
         <div class="dynamic-content">
-            <div class="left">
-                <h1>test</h1>
-                <h1>test</h1>
-                <h1>test</h1>
+            <div class="divider">
+                <div class="divider-colored">
+                    <span></span>
+                </div>
             </div>
-            <div class="right">
-
+            <div class="container">
+                <div class="info">
+                    <h1>Administrér din forretning og optimer indtjening</h1>
+                    <h3>Vores software er optimeret til medarbejdere, der ønsker overblik og kontrol over deres køretøjer og forskellige arbejdsprocesser.</h3>
+                    <p><strong>Dataregistrering:</strong> Tilføj og administrér lejeaftaler hurtigt og nemt i systemet, med alle nødvendige detaljer som start og slut dato, pris osv.</p>
+                    <p><strong>Skade&Udbedring:</strong> Få en klar oversigt over skade rapporter, med mulighed for simplificere processen for tilbageleveringen af biler. </p>
+                    <p><strong>Forretningsudvikler:</strong> En attraktiv platform skabt for samarbejdspartnere, som giver generel oversigt over økonomi, samt giver mulighed til at håndtere oprettelsen af biler</p>
+                </div>
+            </div>
+            <div class="divider">
+                <div class="divider-colored">
+                    <span></span>
+                </div>
             </div>
         </div>
     </div>

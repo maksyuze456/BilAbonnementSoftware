@@ -16,6 +16,10 @@ public class Skade {
     private double pris;
 
     public Skade() {
+
+    }
+
+    public Skade(int skadeID, int rapportID, String skadebeskrivelse, String kategori, double pris) {
         this.skadeID = skadeID;
         this.rapportID = rapportID;
         this.skadebeskrivelse = skadebeskrivelse;

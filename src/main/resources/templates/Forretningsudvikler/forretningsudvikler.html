@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/newTable.css}">
     <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsUdlejede.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
@@ -69,6 +69,9 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <tr th:if="${#lists.isEmpty(carsList)}">
+                            <td colspan="6">Ingen biler eksister med den filtre.</td>
+                        </tr>
                         <tr th:each="bil: ${carsList}">
                             <td th:text="${bil.stelnummer}">
                             <td th:text="${bil.mærke}">

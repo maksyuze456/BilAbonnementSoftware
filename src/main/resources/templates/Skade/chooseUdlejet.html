@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/newTable.css}">
     <link rel="stylesheet" th:href="@{/Lejeaftale/chooseCar.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
@@ -58,6 +58,9 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <tr th:if="${#lists.isEmpty(carList)}">
+                        <td colspan="5">Ingen biler er udlejet</td>
+                    </tr>
                     <tr th:each="bil: ${carList}">
                         <td th:text="${bil.stelnummer}">
                         <td th:text="${bil.mærke}">

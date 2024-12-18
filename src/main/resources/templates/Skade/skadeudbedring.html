@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/Skade/rapporter.css}">
-    <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/newTable.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
@@ -65,9 +65,12 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <tr th:if="${#lists.isEmpty(rapporter)}">
+                            <td colspan="6">Ingen rapporter tilføjet endnu</td>
+                        </tr>
                         <tr th:each="rapport: ${rapporter}">
                             <td th:text="${rapport.rapportID}">
-                            <td th:text="${rapport.rapportID}">
+                            <td th:text="${rapport.lejeaftale_id}">
                             <td th:text="${rapport.oprettetDato}">
                             <td th:text="${rapport.stelnummer}">
                             <td th:text="${rapport.beskrivelse}">

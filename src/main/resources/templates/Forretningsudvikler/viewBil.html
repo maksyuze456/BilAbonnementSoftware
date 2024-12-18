@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/Forside.css}">
+    <link rel="stylesheet" th:href="@{/Reuse/newTable.css}">
     <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsViewBil.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
@@ -61,31 +61,31 @@
                     <tbody>
                     <tr>
                         <td>Stelnummer</td>
-                        <td th:text="${car.stelnummer}"></td>
+                        <td class="data-cell" th:text="${car.stelnummer}"></td>
                     </tr>
                     <tr>
                         <td>Brand</td>
-                        <td th:text="${car.mærke}"></td>
+                        <td class="data-cell" th:text="${car.mærke}"></td>
                     </tr>
                     <tr>
                         <td>Model</td>
-                        <td th:text="${car.model}"></td>
+                        <td class="data-cell" th:text="${car.model}"></td>
                     </tr>
                     <tr>
                         <td>Brændstof</td>
-                        <td th:text="${car.brandstof}"></td>
+                        <td class="data-cell" th:text="${car.brandstof}"></td>
                     </tr>
                     <tr>
                         <td>Odometer</td>
-                        <td th:text="${car.odometer}"></td>
+                        <td class="data-cell" th:text="${car.odometer}"></td>
                     </tr>
                     <tr>
                         <td>Leasing pris</td>
-                        <td th:text="${car.pris}+ ',-'"></td>
+                        <td class="data-cell" th:text="${car.pris}+ ',-'"></td>
                     </tr>
                     <tr>
                         <td>Status</td>
-                        <td th:text="${car.bilStatus}"></td>
+                        <td class="data-cell" th:text="${car.bilStatus}"></td>
                     </tr>
                     </tbody>
                 </table>
