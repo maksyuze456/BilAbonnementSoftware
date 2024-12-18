@@ -1,5 +1,4 @@
 .main-content {
-    justify-content: center;
     flex-wrap: wrap;
 }
 .banner-header {
@@ -14,5 +13,23 @@
     width: 50%;
 }
 .banner-header h1 {
-    margin-bottom: 50px;
+    font-size: 32px;
+}
+.dynamic-content{
+
+}
+.container {
+    margin: 0;
+    justify-content: center;
+}
+@media (max-width: 1280px){
+    .dynamic-content {
+        min-width: 565px;
+    }
+    .container{
+        justify-content: center;
+    }
+    .info {
+        min-width: 565px;
+    }
 }

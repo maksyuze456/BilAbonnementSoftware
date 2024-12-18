@@ -1,7 +1,6 @@
 package com.example.bilabonnement.Repository;
 
 import com.example.bilabonnement.Model.Bil;
-import com.example.bilabonnement.Model.LeasingPrice;
 import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
