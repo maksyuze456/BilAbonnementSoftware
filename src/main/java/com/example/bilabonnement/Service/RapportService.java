@@ -24,6 +24,14 @@ public class RapportService {
     }
     public void updateRapport (Rapport r){rapportRepo.updateRapport(r);
     }
+    public int getAntalRapporter(){
+        List<Rapport> rapporter = fetchAll();
+        int counter = 0;
+        for(Rapport rapport: rapporter) {
+            counter++;
+        }
+        return counter;
+    }
     public int getCorrectLejeaftaleId(String lejeaftaleStatus, String stelnummer) {
         return rapportRepo.getCorrectLejeaftaleId(lejeaftaleStatus, stelnummer);
     }

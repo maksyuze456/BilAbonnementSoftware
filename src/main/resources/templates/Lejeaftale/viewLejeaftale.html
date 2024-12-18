@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/Forside.css}">
-    <link rel="stylesheet" th:href="@{/table.css}">
-    <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsUdlejede.css}">
-    <link rel="stylesheet" th:href="@{/Forretningsudvikler/forretningsViewBil.css}">
+    <link rel="stylesheet" th:href="@{/newTable.css}">
+    <link rel="stylesheet" th:href="@{/Lejeaftale/viewLejeaftale.css}">
     <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap}">
@@ -15,7 +14,6 @@
 <div class="page">
     <div class="nav">
         <img id="logo" src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_128/BILABONNEMENT_rgb_m2nbaw.svg" alt="logo">
-        <h2>**</h2>
         <div class="section">
             <a href="/lejeaftale/dataregForsiden">
                 <img src="/images/database.png">
@@ -23,7 +21,7 @@
             </a>
         </div>
         <div class="section">
-            <a href="/rapporter/">
+            <a href="/rapporter/forside">
                 <img src="/images/tools.png">
                 <h3>Skade&Udbedring</h3>
             </a>
@@ -87,11 +85,6 @@
                     <div class="table-buttons">
                         <a th:href="@{'/lejeaftale/update/' + ${lejeaftale.lejeaftale_id}}">
                             <button>Rediger</button>
-                        </a>
-                    </div>
-                    <div class="table-buttons">
-                        <a th:href="@{'/lejeaftale/delete/' + ${lejeaftale.lejeaftale_id}}">
-                            <button>Slet</button>
                         </a>
                     </div>
 

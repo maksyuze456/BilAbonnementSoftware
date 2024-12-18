@@ -30,6 +30,15 @@ public class LejeaftaleService {
         return lejeaftaleRepository.fetchAllCarsByStatus(bilStatus);
     }
 
+    public int getAntalLejeaftalerByStatus(String status) {
+        List<Lejeaftale> lejeaftaler = fetchAllLejeaftalerByStatus(status);
+        int counter = 0;
+        for(Lejeaftale lejeaftale: lejeaftaler) {
+            counter++;
+        }
+        return counter;
+    }
+
     // Henter alle lejeaftaler efter deres status fra repository
     public List<Lejeaftale> fetchAllLejeaftalerByStatus(String lejeaftaleStatus) {
         return lejeaftaleRepository.fetchAllLejeaftalerByStatus(lejeaftaleStatus);

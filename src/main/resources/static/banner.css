@@ -1,0 +1,42 @@
+.dynamic-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 40px;
+}
+.container {
+    display: flex;
+    gap: 50px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.container img{
+    max-width: 556px;
+    max-height: 525px;
+}
+.divider {
+    width: 100%;
+
+}
+.divider-colored {
+    max-width: 75%;
+    min-height: 1px;
+    margin: 0 auto;
+    background-color: #1892c3;
+}
+.info h1{
+    margin-bottom: 48px;
+}
+.info {
+    align-content: center;
+    max-width: 525px;
+}
+@media (max-width: 1280px) {
+    .container img{
+        max-width: 556px;
+        max-height: 452px;
+    }
+    .info {
+        max-width: 325px;
+    }
+}

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/rapporter.css}">
   <link rel="stylesheet" th:href="@{/Forside.css}">
   <link rel="stylesheet" th:href="@{/banner.css}">
   <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
@@ -33,16 +34,14 @@
     </div>
   </div>
   <div class="main-content">
-    <h2>Forretningsudvikler</h2>
+    <h2>Skade&Udbedring</h2>
     <div class="main-buttons">
-      <a href="/forretningsudvikler/udlejet">
-        <button>Alle udlejede</button>
+      <a href="/rapporter/">
+        <button id="active">Alle rapporter</button>
       </a>
-      <a href="/forretningsudvikler/tilgængelig">
-        <button>Alle tilgængelige</button>
-      </a>
-      <a href="/forretningsudvikler/opret_bil">
-        <button>Opret bil</button>
+
+      <a href="create/chooseCar">
+        <button>Håndter tilbagelevering</button>
       </a>
     </div>
     <div class="dynamic-content">
@@ -53,12 +52,12 @@
       </div>
       <div class="container">
         <div class="info">
-          <h1>Administrér biler og optimer indtjening</h1>
-          <h3>Vores software er optimeret til forretningsudviklere, der ønsker overblik og kontrol over deres køretøjer og økonomiske resultater.</h3>
-          <p><strong>Oprettelse af biler:</strong> Tilføj og administrér biler hurtigt og nemt i systemet, med alle nødvendige detaljer som model, registreringsnummer og tilgængelighed.</p>
-          <p><strong>Indtjeningsoversigt:</strong> Få en klar oversigt over indtjening per måned, med mulighed for bedre indsigt i økonomiske resultater</p>
+          <h1>Effektiv håndtering af skader</h1>
+          <h3>Med vores software får du en komplet løsning til dokumentation og håndtering af skader og rapporter på køretøjer.</h3>
+          <p><strong>Rapportering:</strong> Opret og skaderapporter hurtigt og effektivt, så alle relevante oplysninger er tilgængelige for værksteder, forretningsudviklere og medarbejdere.</p>
+          <p><strong>Historik:</strong> Få en samlet oversigt over tidligere skader, reparationer og inspektioner, så du har et klart overblik over bilens tilstand.</p>
         </div>
-        <img src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,e_trim:0,q_80,w_640/v1/bilabonnement-fleet/jvlzzkgtqbydaika503u" alt="bil" >
+        <img src="https://res.cloudinary.com/digital-interdan-bilabonnement/image/upload/c_fit,q_80,w_960/udefra1_ixauu4.jpg" alt="bil" >
       </div>
       <div class="divider">
         <div class="divider-colored">

@@ -19,13 +19,14 @@ public class LejeaftaleController {
     @GetMapping("/dataregForsiden")
     public String index(Model model) {
         model.addAttribute("lejeaftaler", lejeaftaleService.fetchAllLejeaftale());
-        return "lejeaftale/dataregForsiden";
+        return "lejeaftale/lejeaftaleForside";
     }
 
     // Henter og tilføjer lejeaftaler baseret på deres status til modellen som bruges på HTML-siden
     @GetMapping("{lejeaftaleStatus}")
     public String lejeaftaleByStatus(@PathVariable String lejeaftaleStatus, Model model) {
         model.addAttribute("lejeaftaler", lejeaftaleService.fetchAllLejeaftalerByStatus(lejeaftaleStatus));
+        model.addAttribute("antalLejeaftaler", lejeaftaleService.getAntalLejeaftalerByStatus(lejeaftaleStatus));
         return "lejeaftale/dataregForsiden";
     }
 

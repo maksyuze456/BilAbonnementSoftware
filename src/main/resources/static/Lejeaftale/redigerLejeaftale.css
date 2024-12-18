@@ -1,0 +1,31 @@
+.dynamic-content {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.container h3{
+    text-align: center;
+}
+.table-buttons {
+    display: flex;
+    justify-content: center;
+}
+.table-buttons button {
+    border-style: none;
+    border-bottom: 2px solid white;
+    color: white;
+    background-color: #549cc4;
+    font-family: "Be Vietnam Pro";
+    padding: 10px 30px;
+    transition: 0.5s;
+
+}
+.table-buttons button:hover{
+    color: #f2f2f2;
+    border-color: #437ea1;
+    cursor: pointer;
+}

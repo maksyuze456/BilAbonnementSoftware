@@ -27,10 +27,9 @@ tbody tr {
 .right {
     display: flex;
     justify-content: center;
-    flex-direction: column;
 }
 table {
-    width: 100%;
+    min-width: 700px;
     max-width: 700px;
     border: 3px solid #FFFFFF;
 }
@@ -43,11 +42,11 @@ table {
     align-content: center;
 
 }
-.main-content {
-    height: 87vh;
+.container {
+    margin: 0;
 }
 .dynamic-content {
-    gap: 10%;
+    display: flex;
 }
 .right h3{
     margin: 0;
