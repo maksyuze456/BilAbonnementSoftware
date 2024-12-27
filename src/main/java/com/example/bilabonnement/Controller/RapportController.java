@@ -96,7 +96,7 @@ public class RapportController {
     @GetMapping("update/{rapportID}")
     public String updateOne(@PathVariable("rapportID") int id, Model model) {
         model.addAttribute("rapport", rapportService.findRapportById(id));
-        return "skade/UpdateRapport";
+        return "skade/updateRapport";
     }
 
     // Post metode for opdatering af rapport
