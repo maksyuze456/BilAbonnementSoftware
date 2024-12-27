@@ -81,7 +81,7 @@ public class RapportController {
         model.addAttribute("skader", skader);
 
 
-        return "skade/Rapport";
+        return "skade/rapport";
     }
 
     // Sletter en skade rapport
