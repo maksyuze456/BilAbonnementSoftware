@@ -37,7 +37,7 @@ public class LejeaftaleController {
         lejeaftale.setStelnummer(stelnummer);
         lejeaftale.setKunde_nr(kunde_nr);
         model.addAttribute("lejeaftale", lejeaftale);
-        return "lejeaftale/createlejeaftale";
+        return "lejeaftale/createLejeaftale";
     }
 
     // Viser en liste af tilgængelige biler, hvor kunden kan vælge en bil
